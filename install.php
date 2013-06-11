@@ -74,10 +74,6 @@ class pkg_crowdFundingInstallerScript {
             $params             = JComponentHelper::getParams("com_crowdfunding");
             $this->imagesFolder = JFolder::makeSafe($params->get("images_directory", "images/projects"));
             $this->imagesPath   = JPath::clean( JPATH_SITE.DIRECTORY_SEPARATOR.$this->imagesFolder );
-            $this->bootstrap    = JPath::clean( JPATH_SITE.DIRECTORY_SEPARATOR."media".DIRECTORY_SEPARATOR."com_crowdfunding".DIRECTORY_SEPARATOR."css".DIRECTORY_SEPARATOR. "admin".DIRECTORY_SEPARATOR."bootstrap.min.css" );
-        
-            $style = '<style>'.file_get_contents($this->bootstrap).'</style>';
-            echo $style;
             
             // Create images folder
             if(!is_dir($this->imagesPath)){
