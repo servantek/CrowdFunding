@@ -58,7 +58,7 @@ class CrowdFundingCurrency extends CrowdFundingTableCurrency {
         if(!empty($this->symbol)) { // Symbol
             $amount = $this->symbol.$value;
         } else { // Code
-            $amount = $value.$this->code;
+            $amount = $value.$this->abbr;
         }
         
         return $amount;
