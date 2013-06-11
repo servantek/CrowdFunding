@@ -15,7 +15,7 @@
 defined('_JEXEC') or die;
 jimport('joomla.application.component.view');
 
-class CrowdFundingViewDetails extends JView {
+class CrowdFundingViewDetails extends JViewLegacy {
     
     protected $state;
     protected $item;
@@ -67,7 +67,9 @@ class CrowdFundingViewDetails extends JView {
         $this->item->link_image  = $host."/".$this->imageFolder."/".$this->item->image;
         
         // Get the current screen
-        $this->screen = $app->input->get->get("screen", "home");
+        $this->screen = $app->input->getCmd("screen", "home");
+        
+        $this->prepareDocument();
         
         switch($this->screen) {
             
@@ -108,14 +110,12 @@ class CrowdFundingViewDetails extends JView {
 		
 		$this->version     = new CrowdfundingVersion();
 		
-		$this->prepareDocument();
-		
         parent::display($tpl);
     }
     
     protected function prepareUpdatesScreen() {
         
-        $model         = JModel::getInstance("Updates", "CrowdFundingModel", $config = array('ignore_request' => false));
+        $model         = JModelLegacy::getInstance("Updates", "CrowdFundingModel", $config = array('ignore_request' => false));
         $this->items   = $model->getItems();
         $this->form    = $model->getForm();
         
@@ -128,21 +128,21 @@ class CrowdFundingViewDetails extends JView {
         
         
         // Styles
-        $this->document->addStyleSheet(JURI::root() . 'media/'.$this->option.'/css/jquery.pnotify.default.css');
+        $this->document->addStyleSheet('media/'.$this->option.'/css/jquery.pnotify.default.css');
 
         // Scripts
         JHtml::_('behavior.keepalive');
         JHtml::_('behavior.formvalidation');
         
-        $this->document->addScript(JURI::root() . 'media/'.$this->option.'/js/jquery.pnotify.min.js');
-        $this->document->addScript(JURI::root() . 'media/'.$this->option.'/js/helper.js');
+        $this->document->addScript('media/'.$this->option.'/js/jquery.pnotify.min.js');
+        $this->document->addScript('media/'.$this->option.'/js/helper.js');
         
-        $this->document->addScript(JURI::root() . 'media/'.$this->option.'/js/site/updates.js');
+        $this->document->addScript('media/'.$this->option.'/js/site/updates.js');
     }
     
     protected function prepareCommentsScreen() {
         
-        $model         = JModel::getInstance("Comments", "CrowdFundingModel", $config = array('ignore_request' => false));
+        $model         = JModelLegacy::getInstance("Comments", "CrowdFundingModel", $config = array('ignore_request' => false));
         $this->items   = $model->getItems();
         $this->form    = $model->getForm();
         
@@ -154,21 +154,21 @@ class CrowdFundingViewDetails extends JView {
         $this->avatars        = $this->params->get("integration_avatars");
         
         // Styles
-        $this->document->addStyleSheet(JURI::root() . 'media/'.$this->option.'/css/jquery.pnotify.default.css');
+        $this->document->addStyleSheet('media/'.$this->option.'/css/jquery.pnotify.default.css');
 
         // Scripts
         JHtml::_('behavior.keepalive');
         JHtml::_('behavior.formvalidation');
         
-        $this->document->addScript(JURI::root() . 'media/'.$this->option.'/js/jquery.pnotify.min.js');
-        $this->document->addScript(JURI::root() . 'media/'.$this->option.'/js/helper.js');
+        $this->document->addScript('media/'.$this->option.'/js/jquery.pnotify.min.js');
+        $this->document->addScript('media/'.$this->option.'/js/helper.js');
         
-        $this->document->addScript(JURI::root() . 'media/'.$this->option.'/js/site/comments.js');
+        $this->document->addScript('media/'.$this->option.'/js/site/comments.js');
     }
     
     protected function prepareFundersScreen() {
         
-        $model         = JModel::getInstance("Funders", "CrowdFundingModel", $config = array('ignore_request' => false));
+        $model         = JModelLegacy::getInstance("Funders", "CrowdFundingModel", $config = array('ignore_request' => false));
         $this->items   = $model->getItems();
         
         // Get a social platform for integration
@@ -213,12 +213,10 @@ class CrowdFundingViewDetails extends JView {
         $pathway->addItem($currentBreadcrumb, '');
         
         // Add styles
-        $this->document->addStyleSheet( 'media/'.$this->option.'/css/site/bootstrap.min.css');
         $this->document->addStyleSheet( 'media/'.$this->option.'/css/site/style.css');
-        
         // Add scripts
         JHtml::_('behavior.framework');
-        
+        JHtml::_('bootstrap.framework');
     }
     
     private function prepearePageHeading() {
@@ -248,6 +246,22 @@ class CrowdFundingViewDetails extends JView {
         // Prepare page title
 //        $title = $this->params->get('page_title', $this->item->title);
         $title = $this->item->title;
+        
+        switch ($this->screen) {
+            
+            case "updates":
+                $title .= " | " .JText::_("COM_CROWDFUNDING_UPDATES");
+            break;
+                
+            case "comments":
+                $title .= " | " .JText::_("COM_CROWDFUNDING_COMMENTS");    
+            break;
+            
+            case "funders":
+                $title .= " | " .JText::_("COM_CROWDFUNDING_FUNDERS");
+            break;
+            
+        }
         
         // Add title before or after Site Name
         if (!$title) {

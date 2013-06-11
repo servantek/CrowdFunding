@@ -32,55 +32,55 @@ class CrowdFundingHelper {
 	 */
 	public static function addSubmenu($vName = 'dashboard') {
 	    
-	    JSubMenuHelper::addEntry(
+	    JHtmlSidebar::addEntry(
 			JText::_('COM_CROWDFUNDING_DASHBOARD'),
 			'index.php?option='.self::$extension.'&view=dashboard',
 			$vName == 'dashboard'
 		);
 		
-		JSubMenuHelper::addEntry(
+		JHtmlSidebar::addEntry(
 			JText::_('COM_CROWDFUNDING_CATEGORIES'),
 			'index.php?option=com_categories&extension='.self::$extension.'',
 			$vName == 'categories'
 		);
 		
-		JSubMenuHelper::addEntry(
+		JHtmlSidebar::addEntry(
 			JText::_('COM_CROWDFUNDING_PROJECTS'),
 			'index.php?option='.self::$extension.'&view=projects',
 			$vName == 'projects'
 		);
 		
-		JSubMenuHelper::addEntry(
+		JHtmlSidebar::addEntry(
 			JText::_('COM_CROWDFUNDING_TRANSACTIONS'),
 			'index.php?option='.self::$extension.'&view=transactions',
 			$vName == 'transactions'
 		);
 		
-		JSubMenuHelper::addEntry(
+		JHtmlSidebar::addEntry(
 			JText::_('COM_CROWDFUNDING_LOCATIONS'),
 			'index.php?option='.self::$extension.'&view=locations',
 			$vName == 'locations'
 		);
 		
-		JSubMenuHelper::addEntry(
+		JHtmlSidebar::addEntry(
 			JText::_('COM_CROWDFUNDING_CURRENCIES'),
 			'index.php?option='.self::$extension.'&view=currencies',
 			$vName == 'currencies'
 		);
 		
-		JSubMenuHelper::addEntry(
+		JHtmlSidebar::addEntry(
 			JText::_('COM_CROWDFUNDING_UPDATES'),
 			'index.php?option='.self::$extension.'&view=updates',
 			$vName == 'updates'
 		);
 		
-		JSubMenuHelper::addEntry(
+		JHtmlSidebar::addEntry(
 			JText::_('COM_CROWDFUNDING_COMMENTS'),
 			'index.php?option='.self::$extension.'&view=comments',
 			$vName == 'comments'
 		);
 		
-		JSubMenuHelper::addEntry(
+		JHtmlSidebar::addEntry(
     		JText::_('COM_CROWDFUNDING_PLUGINS'),
     		'index.php?option=com_plugins&view=plugins&filter_search='.rawurlencode("crowdfunding"),
     		$vName == 'plugins'

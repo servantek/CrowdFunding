@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-class CrowdFundingViewDiscover extends JView {
+class CrowdFundingViewDiscover extends JViewLegacy {
     
     protected $state      = null;
     protected $items      = null;
@@ -92,7 +92,6 @@ class CrowdFundingViewDiscover extends JView {
         }
         
         // Head styles
-        $this->document->addStyleSheet( 'media/'.$this->option.'/css/site/bootstrap.min.css');
         $this->document->addStyleSheet( 'media/'.$this->option.'/css/site/style.css');
         
     }

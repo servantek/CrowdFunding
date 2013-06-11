@@ -14,58 +14,65 @@
 // no direct access
 defined('_JEXEC') or die;
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_crowdfunding'); ?>" method="post" name="adminForm" id="adminForm" class="form-validate" enctype="multipart/form-data">
-    <div class="width-40 fltlft">
-        <fieldset class="adminform">
-            <legend><?php echo JText::_("COM_CROWDFUNDING_PROJECT_DATA_LEGEND"); ?></legend>
-            
-            <ul class="adminformlist">
-                <li><?php echo $this->form->getLabel('title'); ?>
-                <?php echo $this->form->getInput('title'); ?></li>
-                
-                <li><?php echo $this->form->getLabel('alias'); ?>
-                <?php echo $this->form->getInput('alias'); ?></li>
-                
-                <li><?php echo $this->form->getLabel('goal'); ?>
-                <?php echo $this->form->getInput('goal'); ?></li>
-                
-                <li><?php echo $this->form->getLabel('funded'); ?>
-                <?php echo $this->form->getInput('funded'); ?></li>
-                
-                <li><?php echo $this->form->getLabel('funding_type'); ?>
-                <?php echo $this->form->getInput('funding_type'); ?></li>
-                
-                <li><?php echo $this->form->getLabel('pitch_video'); ?>
-                <?php echo $this->form->getInput('pitch_video'); ?></li>
-                
-                <li><?php echo $this->form->getLabel('catid'); ?>
-                <?php echo $this->form->getInput('catid'); ?></li>
-                
-                <li><?php echo $this->form->getLabel('published'); ?>
-                <?php echo $this->form->getInput('published'); ?></li>
-                   
-                <li><?php echo $this->form->getLabel('approved'); ?>
-                <?php echo $this->form->getInput('approved'); ?></li>
+<div class="row-fluid">
+    <div class="span6 form-horizontal">
+        <form action="<?php echo JRoute::_('index.php?option=com_crowdfunding'); ?>" method="post" name="adminForm" id="adminForm" class="form-validate" enctype="multipart/form-data">
     
-                <li><?php echo $this->form->getLabel('id'); ?>
-                <?php echo $this->form->getInput('id'); ?></li>
-            </ul>
+            <fieldset>
             
-            <div class="clr"></div>
-            <?php echo $this->form->getLabel('short_desc'); ?>
-            <div class="clr"></div>
-            <?php echo $this->form->getInput('short_desc'); ?>
-            <div class="clr"></div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('title'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('title'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('alias'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('alias'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('goal'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('goal'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('funded'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('funded'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('funding_type'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('funding_type'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('pitch_video'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('pitch_video'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('catid'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('catid'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('published'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('published'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('approved'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('approved'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('id'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('id'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('short_desc'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('short_desc'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('description'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('description'); ?></div>
+                </div>
             
-            <div class="clr"></div>
-            <?php echo $this->form->getLabel('description'); ?>
-            <div class="clr"></div>
-            <?php echo $this->form->getInput('description'); ?>
-            <div class="clr"></div>
+            </fieldset>
             
-        </fieldset>
+            <input type="hidden" name="task" value="" />
+            <?php echo JHtml::_('form.token'); ?>
+    </form>
     </div>
-
-    <input type="hidden" name="task" value="" />
-    <?php echo JHtml::_('form.token'); ?>
-</form>
+</div>

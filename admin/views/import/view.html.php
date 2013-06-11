@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-class CrowdFundingViewImport extends JView {
+class CrowdFundingViewImport extends JViewLegacy {
     
     protected $state;
     protected $form;
@@ -73,7 +73,7 @@ class CrowdFundingViewImport extends JView {
     protected function addToolbar(){
         
         // Set toolbar items for the page
-        JToolBarHelper::title(JText::_('COM_CROWDFUNDING_IMPORT_MANAGER'), 'itp-import');
+        JToolBarHelper::title(JText::_('COM_CROWDFUNDING_IMPORT_MANAGER'));
         
         // Upload
 		JToolBarHelper::custom($this->uploadTask, "upload", "", JText::_("COM_CROWDFUNDING_UPLOAD"), false);
@@ -89,13 +89,13 @@ class CrowdFundingViewImport extends JView {
 	 * @return void
 	 */
 	protected function setDocument() {
-		$this->document->setTitle(JText::_('COM_CROWDFUNDING_IMPORT_MANAGER'));
 		
-		// Add behaviors
+	    $this->document->setTitle(JText::_('COM_CROWDFUNDING_IMPORT_MANAGER'));
+		
+		// Scripts
         JHtml::_('behavior.tooltip');
         JHtml::_('behavior.formvalidation');
         
-		// Add scripts
 		$this->document->addScript('../media/'.$this->option.'/js/admin/'.JString::strtolower($this->getName()).'.js');
 	}
 	

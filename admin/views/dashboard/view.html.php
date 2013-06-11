@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-class CrowdFundingViewDashboard extends JView {
+class CrowdFundingViewDashboard extends JViewLegacy {
     
     protected $option;
     
@@ -42,10 +42,19 @@ class CrowdFundingViewDashboard extends JView {
         CrowdFundingHelper::addSubmenu($this->getName());
         
         $this->addToolbar();
+        $this->addSidebar();
         $this->setDocument();
         
         parent::display($tpl);
     }
+    
+    /**
+     * Add a menu on the sidebar of page
+     */
+    protected function addSidebar() {
+        $this->sidebar = JHtmlSidebar::render();
+    }
+    
     
     /**
      * Add the page title and toolbar.
@@ -53,7 +62,7 @@ class CrowdFundingViewDashboard extends JView {
      * @since   1.6
      */
     protected function addToolbar(){
-        JToolBarHelper::title(JText::_("COM_CROWDFUNDING_DASHBOARD"), 'itp-dashboard');
+        JToolBarHelper::title(JText::_("COM_CROWDFUNDING_DASHBOARD"));
         
         JToolBarHelper::preferences('com_crowdfunding');
         JToolBarHelper::divider();

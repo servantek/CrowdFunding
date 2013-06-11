@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-class CrowdFundingViewUpdate extends JView {
+class CrowdFundingViewUpdate extends JViewLegacy {
     
     protected $state;
     protected $item;
@@ -59,14 +59,9 @@ class CrowdFundingViewUpdate extends JView {
         $this->documentTitle = $isNew ? JText::_('COM_CROWDFUNDING_NEW_UPDATE')
 		                              : JText::_('COM_CROWDFUNDING_EDIT_UPDATE');
         
-		if(!$isNew) {
-		    JToolBarHelper::title($this->documentTitle, 'itp-edit-update');
-		} else {
-            JToolBarHelper::title($this->documentTitle, 'itp-new-update');
-		}
+		JToolBarHelper::title($this->documentTitle);
 		                             
         JToolBarHelper::apply('update.apply');
-        JToolBarHelper::save2new('update.save2new');
         JToolBarHelper::save('update.save');
     
         if(!$isNew){
@@ -86,11 +81,14 @@ class CrowdFundingViewUpdate extends JView {
 	    
 		$this->document->setTitle($this->documentTitle);
         
-		// Add scripts
-		JHtml::_('behavior.tooltip');
-		JHtml::_('behavior.formvalidation');
-		
-		$this->document->addScript(JURI::root() . 'media/'.$this->option.'/js/admin/'.JString::strtolower($this->getName()).'.js');
+		// Scripts
+        JHtml::_('behavior.keepalive');
+        JHtml::_('behavior.formvalidation');
+        JHtml::_('behavior.tooltip');
+        
+        JHtml::_('formbehavior.chosen', 'select');
+        
+		$this->document->addScript('../media/'.$this->option.'/js/admin/'.JString::strtolower($this->getName()).'.js');
         
 	}
 

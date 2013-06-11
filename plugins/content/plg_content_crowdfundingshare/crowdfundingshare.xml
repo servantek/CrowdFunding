@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="2.5" type="plugin" group="content" method="upgrade">
+<extension version="3.1" type="plugin" group="content" method="upgrade">
     <name>PLG_CONTENT_CROWDFUNDINGSHARE</name>
     <author>Todor Iliev</author>
     <copyright>Copyright (C) 2010 Todor Iliev ( ITPrism.com ). All rights reserved.</copyright>
     <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
     <authorEmail>todor@itprism.com</authorEmail>
     <authorUrl>http://itprism.com</authorUrl>
-    <version>1.1</version>
+    <version>1.1.2</version>
     <creationDate>16 June, 2013</creationDate>
     <description>PLG_CONTENT_CROWDFUNDINGSHARE_DESC</description>
     
@@ -27,7 +27,7 @@
 		<fields name="params">
 			<fieldset name="basic">
 				<field name="spacer1" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_TWITTER_SETTINGS" />
-                <field name="twitterButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_TWITTER_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_TWITTER_BUTTON_DESC" >
+                <field name="twitterButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_TWITTER_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_TWITTER_BUTTON_DESC" class="btn-group">
                    <option value="0">JHIDE</option>
                    <option value="1">JSHOW</option>
                 </field>
@@ -78,7 +78,7 @@
                    <option value="jp">PLG_CONTENT_CROWDFUNDINGSHARE_JAPANESE</option>
                 </field>
                 <field name="spacer2" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_TUMBLR_SETTINGS" />
-                <field name="tumblrButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_TUMBLR_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_TUMBLR_BUTTON_DESC" >
+                <field name="tumblrButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_TUMBLR_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_TUMBLR_BUTTON_DESC" class="btn-group">
                    <option value="0">JHIDE</option>
                    <option value="1">JSHOW</option>
                 </field>
@@ -94,7 +94,7 @@
                 </field>
                 
                 <field name="spacer3" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_SETTINGS" />
-                <field name="facebookLikeButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_BUTTON_DESC" >
+                <field name="facebookLikeButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_BUTTON_DESC" class="btn-group">
                    <option value="0">JHIDE</option>
                    <option value="1">JSHOW</option>
                 </field>
@@ -112,7 +112,7 @@
                     <option value="box_count">PLG_CONTENT_CROWDFUNDINGSHARE_BOX_COUNT</option>
                     <option value="button_count">PLG_CONTENT_CROWDFUNDINGSHARE_BUTTON_COUNT</option>
                 </field>
-                <field name="facebookLikeFaces" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_FACES" description="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_FACES_DESC" >
+                <field name="facebookLikeFaces" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_FACES" description="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_FACES_DESC" class="btn-group">
                    <option value="0">JHIDE</option>
                    <option value="1">JSHOW</option>
                 </field>
@@ -241,7 +241,7 @@
                 </field>
                 
                 <field name="spacer4" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_STUMBLEUPON_SETTINGS" />
-                <field name="stumbleButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_STUMBLEUPON_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_STUMBLEUPON_BUTTON_DESC" >
+                <field name="stumbleButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_STUMBLEUPON_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_STUMBLEUPON_BUTTON_DESC" class="btn-group">
                    <option value="0">JHIDE</option>
                    <option value="1">JSHOW</option>
                 </field>  
@@ -255,7 +255,7 @@
                 </field>  
                 
                 <field name="spacer5" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_LINKEDIN_SETTINGS" />
-                <field name="linkedInButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_LINKEDIN_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_LINKEDIN_BUTTON_DESC" >
+                <field name="linkedInButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_LINKEDIN_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_LINKEDIN_BUTTON_DESC" class="btn-group">
                    <option value="0">JHIDE</option>
                    <option value="1">JSHOW</option>
                 </field>
@@ -266,7 +266,7 @@
                 </field>  
                 
                 <field name="spacer6" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_REDDIT_SETTINGS" />
-                <field name="redditButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_REDDIT_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_REDDIT_BUTTON_DESC" >
+                <field name="redditButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_REDDIT_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_REDDIT_BUTTON_DESC" class="btn-group">
                    <option value="0">JHIDE</option>
                    <option value="1">JSHOW</option>
                 </field>
@@ -297,13 +297,13 @@
                 </field>
                 <field name="redditBgColor" type="text" default="" label="PLG_CONTENT_CROWDFUNDINGSHARE_REDDIT_BG_COLOR" description="PLG_CONTENT_CROWDFUNDINGSHARE_REDDIT_BG_COLOR_DESC" />
                 <field name="redditBorderColor" type="text" default="" label="PLG_CONTENT_CROWDFUNDINGSHARE_REDDIT_BORDER_COLOR" description="PLG_CONTENT_CROWDFUNDINGSHARE_REDDIT_BORDER_COLOR_DESC" />
-                <field name="redditNewTab" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_REDDIT_NEW_TAB" description="PLG_CONTENT_CROWDFUNDINGSHARE_REDDIT_NEW_TAB_DESC" >
+                <field name="redditNewTab" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_REDDIT_NEW_TAB" description="PLG_CONTENT_CROWDFUNDINGSHARE_REDDIT_NEW_TAB_DESC" class="btn-group">
                    <option value="0">JNO</option>
                    <option value="1">JYES</option>
                 </field>
                 
                 <field name="spacer7" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_ONE_SETTINGS" />
-                <field name="plusButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_ONE_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_ONE_BUTTON_DESC" >
+                <field name="plusButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_ONE_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_ONE_BUTTON_DESC" class="btn-group">
                    <option value="0">JHIDE</option>
                    <option value="1">JSHOW</option>
                 </field>
@@ -387,7 +387,7 @@
                 </field>
                 
                 <field name="spacer8" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_PINTEREST_SETTINGS" />
-                <field name="pinterestButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_PINTEREST_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_PINTEREST_BUTTON_DESC" >
+                <field name="pinterestButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_PINTEREST_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_PINTEREST_BUTTON_DESC" class="btn-group">
                    <option value="0">JHIDE</option>
                    <option value="1">JSHOW</option>
                 </field>
@@ -398,7 +398,7 @@
                 </field>
                 
                 <field name="spacer9" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_BUFFER_SETTINGS" />
-                <field name="bufferButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_BUFFER_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_BUFFER_BUTTON_DESC" >
+                <field name="bufferButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_BUFFER_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_BUFFER_BUTTON_DESC" class="btn-group">
                    <option value="0">JHIDE</option>
                    <option value="1">JSHOW</option>
                 </field>
@@ -410,7 +410,7 @@
                 <field name="bufferTwitterName" type="text" default="" size="80" label="PLG_CONTENT_CROWDFUNDINGSHARE_BUFFER_USERNAME" description="PLG_CONTENT_CROWDFUNDINGSHARE_BUFFER_USERNAME_DESC" />
                 
                 <field name="spacer10" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_SHARE_SETTINGS" />
-                <field name="gsButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_SHARE_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_SHARE_BUTTON" >
+                <field name="gsButton" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_SHARE_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_SHARE_BUTTON" class="btn-group">
                    <option value="0">JHIDE</option>
                    <option value="1">JSHOW</option>
                 </field>
@@ -496,15 +496,15 @@
 			</fieldset>
 	           
            <fieldset name="embed" label="PLG_CONTENT_CROWDFUNDINGSHARE_EMBED_SETTINGS">
-                <field name="display_embed_link" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_EMBED_LINK" description="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_EMBED_LINK_DESC">
+                <field name="display_embed_link" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_EMBED_LINK" description="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_EMBED_LINK_DESC" class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
-                <field name="display_embed_button" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_EMBED_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_EMBED_BUTTON_DESC">
+                <field name="display_embed_button" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_EMBED_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_EMBED_BUTTON_DESC" class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
-                <field name="display_embed_email" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_EMBED_EMAIL" description="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_EMBED_EMAIL_DESC">
+                <field name="display_embed_email" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_EMBED_EMAIL" description="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_EMBED_EMAIL_DESC" class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
@@ -525,75 +525,75 @@
             
             <fieldset name="facebook_advanced_settings" label="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_ADVANCED_SETTINGS">
                 <field name="facebookLikeAppId" type="text" default="" label="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_APP_ID" description="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_APP_ID_DESC" />
-                <field name="facebookLikeSend" type="list" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_SEND_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_SEND_BUTTON" >
+                <field name="facebookLikeSend" type="list" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_SEND_BUTTON" description="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_SEND_BUTTON" class="btn-group">
                    <option value="0">JNO</option>
                    <option value="1">JYES</option>
                 </field>
-                <field name="facebookRootDiv" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_ROOT" description="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_ROOT_DESC" >
+                <field name="facebookRootDiv" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_ROOT" description="PLG_CONTENT_CROWDFUNDINGSHARE_FACEBOOK_ROOT_DESC" class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                  </field>
-                <field name="facebookLoadJsLib" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_LOAD_JS_LIB" description="PLG_CONTENT_CROWDFUNDINGSHARE_LOAD_JS_LIB_DESC">
+                <field name="facebookLoadJsLib" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_LOAD_JS_LIB" description="PLG_CONTENT_CROWDFUNDINGSHARE_LOAD_JS_LIB_DESC" class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
             </fieldset>
              
             <fieldset name="additional_code" label="PLG_CONTENT_CROWDFUNDINGSHARE_ADDITIONAL_BUTTONS">
-                <field name="ebuttons1" type="textarea" default="" label="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE" description="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE_DESC" cols="50" rows="10" filter="raw" />
-                <field name="ebuttons2" type="textarea" default="" label="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE" description="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE_DESC" cols="50" rows="10" filter="raw" />
-                <field name="ebuttons3" type="textarea" default="" label="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE" description="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE_DESC" cols="50" rows="10" filter="raw" />
-                <field name="ebuttons4" type="textarea" default="" label="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE" description="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE_DESC" cols="50" rows="10" filter="raw" />
-                <field name="ebuttons5" type="textarea" default="" label="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE" description="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE_DESC" cols="50" rows="10" filter="raw" />
+                <field name="ebuttons1" type="textarea" default="" label="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE" description="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE_DESC" class="span6" rows="10" filter="raw" />
+                <field name="ebuttons2" type="textarea" default="" label="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE" description="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE_DESC" class="span6" rows="10" filter="raw" />
+                <field name="ebuttons3" type="textarea" default="" label="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE" description="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE_DESC" class="span6" rows="10" filter="raw" />
+                <field name="ebuttons4" type="textarea" default="" label="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE" description="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE_DESC" class="span6" rows="10" filter="raw" />
+                <field name="ebuttons5" type="textarea" default="" label="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE" description="PLG_CONTENT_CROWDFUNDINGSHARE_CUSTOM_BUTTON_CODE_DESC" class="span6" rows="10" filter="raw" />
             </fieldset>
             
             <fieldset name="advanced">
-                <field name="display_title_details_view" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_TITLE_DETAILS_VIEW" description="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_TITLE_DETAILS_VIEW_DESC" >
+                <field name="display_title_details_view" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_TITLE_DETAILS_VIEW" description="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_TITLE_DETAILS_VIEW_DESC" class="btn-group">
                    <option value="0">JNO</option>
                    <option value="1">JYES</option>
                 </field>
                 
-                <field name="display_title_payment_view" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_TITLE_PAYMENT_VIEW" description="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_TITLE_PAYMENT_VIEW_DESC" >
+                <field name="display_title_payment_view" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_TITLE_PAYMENT_VIEW" description="PLG_CONTENT_CROWDFUNDINGSHARE_DISPLAY_TITLE_PAYMENT_VIEW_DESC" class="btn-group">
                    <option value="0">JNO</option>
                    <option value="1">JYES</option>
                 </field>
                 
                 <field name="spacer21" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_TUMBLR_ADVANCED_SETTINGS" />
-                <field name="loadTumblrJsLib" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_TUMBLR_LOAD_JS" description="PLG_CONTENT_CROWDFUNDINGSHARE_TUMBLR_LOAD_JS_DESC">
+                <field name="loadTumblrJsLib" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_TUMBLR_LOAD_JS" description="PLG_CONTENT_CROWDFUNDINGSHARE_TUMBLR_LOAD_JS_DESC" class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
                 
                 <field name="spacer22" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_TWITTER_ADVANCED_SETTINGS" />
-                <field name="load_twitter_library" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_TWITTER_LOAD_LIBRARY" description="PLG_CONTENT_CROWDFUNDINGSHARE_TWITTER_LOAD_LIBRARY_DESC">
+                <field name="load_twitter_library" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_TWITTER_LOAD_LIBRARY" description="PLG_CONTENT_CROWDFUNDINGSHARE_TWITTER_LOAD_LIBRARY_DESC" class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
                 
                 <field name="spacer23" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_LINKEDIN_ADVANCED_SETTINGS" />
-                <field name="load_linkedin_library" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_LINKEDIN_LOAD_LIBRARY" description="PLG_CONTENT_CROWDFUNDINGSHARE_LINKEDIN_LOAD_LIBRARY_DESC">
+                <field name="load_linkedin_library" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_LINKEDIN_LOAD_LIBRARY" description="PLG_CONTENT_CROWDFUNDINGSHARE_LINKEDIN_LOAD_LIBRARY_DESC" class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
                 
                 <field name="spacer24" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_ADVANCED_SETTINGS" />
-                <field name="loadGoogleJsLib" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_LOAD_JS" description="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_LOAD_JS_DESC">
+                <field name="loadGoogleJsLib" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_LOAD_JS" description="PLG_CONTENT_CROWDFUNDINGSHARE_GOOGLE_LOAD_JS_DESC" class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
                 
                 <field name="spacer25" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_PINTEREST_ADVANCED_SETTINGS" />
-                <field name="loadPinterestJsLib" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_PINTEREST_JS" description="PLG_CONTENT_CROWDFUNDINGSHARE_PINTEREST_LOAD_JS_DESC">
+                <field name="loadPinterestJsLib" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_PINTEREST_JS" description="PLG_CONTENT_CROWDFUNDINGSHARE_PINTEREST_LOAD_JS_DESC" class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
                 
                 <field name="spacer26" type="spacer" class="text" label="PLG_CONTENT_CROWDFUNDINGSHARE_ADVANCED_SETTINGS" />
-                <field name="loadCss" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_LOAD_STYLE_CSS" description="PLG_CONTENT_CROWDFUNDINGSHARE_LOAD_STYLE_CSS_DESC">
+                <field name="loadCss" type="radio" default="1" label="PLG_CONTENT_CROWDFUNDINGSHARE_LOAD_STYLE_CSS" description="PLG_CONTENT_CROWDFUNDINGSHARE_LOAD_STYLE_CSS_DESC" class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
-                <field name="dynamicLocale" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_AUTO_LANGUAGE" description="PLG_CONTENT_CROWDFUNDINGSHARE_AUTO_LANGUAGE_DESC">
+                <field name="dynamicLocale" type="radio" default="0" label="PLG_CONTENT_CROWDFUNDINGSHARE_AUTO_LANGUAGE" description="PLG_CONTENT_CROWDFUNDINGSHARE_AUTO_LANGUAGE_DESC" class="btn-group">
                  <option value="0">JNO</option>
                  <option value="1">JYES</option>
                </field>

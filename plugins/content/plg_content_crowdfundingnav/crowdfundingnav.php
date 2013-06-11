@@ -49,10 +49,10 @@ class plgContentCrowdFundingNav extends JPlugin {
         // Load language
         $this->loadLanguage();
         
-        $itemId = $app->input->get->get("id");
+        $itemId = $app->input->getInt("id");
         $stats  = $this->getNavStats($itemId);
         
-        $screen = $app->input->get->get("screen", "home");
+        $screen = $app->input->getCmd("screen", "home");
         
         $html  = '<ul class="nav nav-pills">';
         

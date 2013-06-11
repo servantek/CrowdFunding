@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-class CrowdFundingViewTransaction extends JView {
+class CrowdFundingViewTransaction extends JViewLegacy {
     
     protected $state;
     protected $item;
@@ -57,7 +57,7 @@ class CrowdFundingViewTransaction extends JView {
         
         $this->documentTitle = JText::_('COM_CROWDFUNDING_EDIT_TRANSACTION');
         
-	    JToolBarHelper::title($this->documentTitle, 'itp-edit-transaction');
+	    JToolBarHelper::title($this->documentTitle);
 		                             
         JToolBarHelper::apply('transaction.apply');
         JToolBarHelper::save('transaction.save');
@@ -75,11 +75,14 @@ class CrowdFundingViewTransaction extends JView {
 	    
 		$this->document->setTitle($this->documentTitle);
         
-		// Add scripts
-		JHtml::_('behavior.tooltip');
-		JHtml::_('behavior.formvalidation');
+		// Add behaviors
+        JHtml::_('behavior.keepalive');
+        JHtml::_('behavior.formvalidation');
+        JHtml::_('behavior.tooltip');
+        
+        JHtml::_('formbehavior.chosen', 'select');
 		
-		$this->document->addScript(JURI::root() . 'media/'.$this->option.'/js/admin/'.JString::strtolower($this->getName()).'.js');
+		$this->document->addScript('../media/'.$this->option.'/js/admin/'.JString::strtolower($this->getName()).'.js');
         
 	}
 

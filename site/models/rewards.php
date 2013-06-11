@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.model');
 
-class CrowdFundingModelRewards extends JModel {
+class CrowdFundingModelRewards extends JModelLegacy {
     
 	/**
      * Returns a reference to the a Table object, always creating it.

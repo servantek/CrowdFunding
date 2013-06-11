@@ -16,13 +16,12 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-class CrowdFundingViewLocations extends JView {
+class CrowdFundingViewLocations extends JViewLegacy {
     
     protected $items;
     protected $pagination;
     protected $state;
     
-    protected $documentTitle;
     protected $option;
     
     public function __construct($config) {
@@ -44,11 +43,57 @@ class CrowdFundingViewLocations extends JView {
         // Add submenu
         CrowdFundingHelper::addSubmenu($this->getName());
         
+        // Prepare sorting data
+        $this->prepareSorting();
+        
         // Prepare actions
         $this->addToolbar();
+        $this->addSidebar();
         $this->setDocument();
         
         parent::display($tpl);
+    }
+    
+    /**
+     * Prepare sortable fields, sort values and filters.
+     */
+    protected function prepareSorting() {
+    
+        // Prepare filters
+        $this->listOrder  = $this->escape($this->state->get('list.ordering'));
+        $this->listDirn   = $this->escape($this->state->get('list.direction'));
+        $this->saveOrder  = (strcmp($this->listOrder, 'a.ordering') != 0 ) ? false : true;
+    
+        if ($this->saveOrder) {
+            $this->saveOrderingUrl = 'index.php?option='.$this->option.'&task='.$this->getName().'.saveOrderAjax&format=raw';
+            JHtml::_('sortablelist.sortable', $this->getName().'List', 'adminForm', strtolower($this->listDirn), $this->saveOrderingUrl);
+        }
+    
+        $this->sortFields = array(
+            'a.published'     => JText::_('JSTATUS'),
+            'a.name'          => JText::_('COM_CROWDFUNDING_NAME'),
+            'a.country_code'  => JText::_('COM_CROWDFUNDING_COUNTRY_CODE'),
+            'a.time_zone'     => JText::_('COM_CROWDFUNDING_TIMEZONE'),
+            'a.id'            => JText::_('JGRID_HEADING_ID')
+        );
+    
+    }
+    
+    /**
+     * Add a menu on the sidebar of page
+     */
+    protected function addSidebar() {
+    
+        JHtmlSidebar::setAction('index.php?option='.$this->option.'&view='.$this->getName());
+    
+        JHtmlSidebar::addFilter(
+            JText::_('JOPTION_SELECT_PUBLISHED'),
+            'filter_state',
+            JHtml::_('select.options', JHtml::_('jgrid.publishedOptions', array("archived" => false, "trash"=>false)), 'value', 'text', $this->state->get('filter.state'), true)
+        );
+    
+        $this->sidebar = JHtmlSidebar::render();
+    
     }
     
     /**
@@ -59,7 +104,7 @@ class CrowdFundingViewLocations extends JView {
     protected function addToolbar(){
         
         // Set toolbar items for the page
-        JToolBarHelper::title(JText::_('COM_CROWDFUNDING_LOCATIONS_MANAGER'), 'itp-locations');
+        JToolBarHelper::title(JText::_('COM_CROWDFUNDING_LOCATIONS_MANAGER'));
         JToolBarHelper::addNew('location.add');
         JToolBarHelper::editList('location.edit');
         JToolBarHelper::divider();
@@ -73,7 +118,7 @@ class CrowdFundingViewLocations extends JView {
 		
 		// Export
 		$link = JRoute::_('index.php?option=com_crowdfunding&task=export.download&format=raw&type=locations');
-		$bar->appendButton('Link', 'export', JText::_("COM_CROWDFUNDING_EXPORT"), $link);
+		$bar->appendButton('Link', 'download', JText::_("COM_CROWDFUNDING_EXPORT"), $link);
 		
         JToolBarHelper::divider();
         JToolBarHelper::publishList("locations.publish");
@@ -81,7 +126,7 @@ class CrowdFundingViewLocations extends JView {
         JToolBarHelper::divider();
         JToolBarHelper::deleteList(JText::_("COM_CROWDFUNDING_DELETE_ITEMS_QUESTION"), "locations.delete");
         JToolBarHelper::divider();
-        JToolBarHelper::custom('locations.backToDashboard', "itp-dashboard-back", "", JText::_("COM_CROWDFUNDING_DASHBOARD"), false);
+        JToolBarHelper::custom('locations.backToDashboard', "dashboard", "", JText::_("COM_CROWDFUNDING_DASHBOARD"), false);
         
     }
     
@@ -94,11 +139,13 @@ class CrowdFundingViewLocations extends JView {
 	    
 		$this->document->setTitle(JText::_('COM_CROWDFUNDING_LOCATIONS_MANAGER'));
 		
-		// Add scripts
-		JHtml::_('behavior.tooltip');
-		JHtml::_('behavior.formvalidation');
+		// Scripts
+		JHtml::_('behavior.multiselect');
+		JHtml::_('bootstrap.tooltip');
 		
-		$this->document->addScript(JURI::root() . 'media/'.$this->option.'/js/admin/'.JString::strtolower($this->getName()).'.js');
+		JHtml::_('formbehavior.chosen', 'select');
+		
+		$this->document->addScript('../media/'.$this->option.'/js/admin/list.js');
 		
 	}
 

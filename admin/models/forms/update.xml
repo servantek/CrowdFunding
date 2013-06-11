@@ -9,10 +9,10 @@
             required="true"
            />
            
-        <field name="description" type="textarea"
+        <field name="description" type="textarea" class="span12"
             label="COM_CROWDFUNDING_FIELD_DESCRIPTION" 
             filter="trim"
-            rows="5" 
+            rows="20" 
             required="true"
         />
 

@@ -160,8 +160,11 @@ class CrowdFundingModelProjects extends JModelList {
     
     protected function getOrderString() {
         
-        $orderCol   = $this->getState('list.ordering');
-        $orderDirn  = $this->getState('list.direction');
+        $orderCol   = $this->getState('list.ordering',  'a.created');
+        $orderDirn  = $this->getState('list.direction', 'asc');
+        if ($orderCol == 'a.ordering') {
+            $orderCol = 'a.catid '.$orderDirn.', a.ordering';
+        }
         
         return $orderCol.' '.$orderDirn;
     }

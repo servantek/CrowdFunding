@@ -12,11 +12,11 @@
  */
 
 // no direct access
-defined( '_JEXEC' ) or die;
+defined('_JEXEC') or die;
 
-jimport( 'joomla.application.component.model' );
+jimport('joomla.application.component.model');
 
-class CrowdFundingModelExport extends JModel {
+class CrowdFundingModelExport extends JModelLegacy {
     
     public function getCurrencies() {
         

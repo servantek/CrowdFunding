@@ -258,20 +258,18 @@ abstract class JHtmlCrowdFunding {
 		    $task   = $prefix."approve";
 		    $title  = "COM_CROWDFUNDING_APPROVE_ITEM";
 		    $text   = "COM_CROWDFUNDING_DISAPPROVED";
-		    $class  = "disapprove";
+		    $class  = "ban-circle";
 	    } else {
 	        $task   = $prefix."disapprove";
 	        $title  = "COM_CROWDFUNDING_DISAPPROVE_ITEM";
 	        $text   = "COM_CROWDFUNDING_APPROVED";
-	        $class  = "approve";
+	        $class  = "ok";
 	    }
 		
-		$html[] = '<a class="jgrid hasTip"';
+		$html[] = '<a class="btn btn-micro" rel="tooltip" ';
 		$html[] = ' href="javascript:void(0);" onclick="return listItemTask(\'' . $checkbox . $i . '\',\'' . $task . '\')"';
 		$html[] = ' title="' . addslashes(htmlspecialchars(JText::_($title), ENT_COMPAT, 'UTF-8')) . '">';
-		$html[] = '<span class="state ' . $class . '">';
-		$html[] = '<span class="text">' . JText::_($text) . '</span>';
-		$html[] = '</span>';
+		$html[] = '<i class="icon-' . $class . '"></i>';
 		$html[] = '</a>';
 		
 		return implode($html);

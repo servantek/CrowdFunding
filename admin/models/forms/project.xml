@@ -2,7 +2,7 @@
 <form>
 	<fieldset addfieldpath="/administrator/components/com_categories/models/fields">
 
-		<field name="title" type="text" class="inputbox" 
+		<field name="title" type="text" 
 			label="JGLOBAL_TITLE"
             description="COM_CROWDFUNDING_FIELD_PROJECT_TITLE_DESC"
             size="40"  
@@ -10,23 +10,23 @@
 			required="true" 
         />
 
-        <field name="alias" type="text" class="inputbox" 
+        <field name="alias" type="text" 
 	        label="JFIELD_ALIAS_LABEL"
 	        description="JFIELD_ALIAS_DESC"
 	        size="40" 
 	    />
 	    
-        <field name="goal" type="text" class="inputbox" 
+        <field name="goal" type="text" 
 	        label="COM_CROWDFUNDING_GOAL"
 	        description="COM_CROWDFUNDING_FIELD_GOAL_DESC"
 	    />
 	    
-        <field name="funded" type="text" class="inputbox" 
+        <field name="funded" type="text" 
 	        label="COM_CROWDFUNDING_FUNDED"
 	        description="COM_CROWDFUNDING_FIELD_FUNDED_DESC"
 	    />
             
-        <field name="funding_type" type="list" class="inputbox" 
+        <field name="funding_type" type="list" 
             label="COM_CROWDFUNDING_FUNDING_TYPE" 
             description="COM_CROWDFUNDING_FUNDING_TYPE_DESC" 
             size="1" 
@@ -36,19 +36,19 @@
             <option value="FLEXIBLE">FLEXIBLE</option>
         </field>
         
-        <field name="pitch_video" type="text" class="inputbox" 
+        <field name="pitch_video" type="text" class="span6" 
             label="COM_CROWDFUNDING_PITCH_VIDEO"
             description="COM_CROWDFUNDING_PITCH_VIDEO_DESC"
             size="60"  
         />
         
-        <field name="catid" type="category" class="inputbox"
+        <field name="catid" type="category"
             label="JCATEGORY"
             description="JFIELD_CATEGORY_DESC"
             extension="com_crowdfunding" 
          />
         
-		<field name="published" type="list" class="inputbox" 
+		<field name="published" type="radio" class="btn-group" 
 		    label="JSTATUS" 
             description="JFIELD_PUBLISHED_DESC" 
             filter="intval" 
@@ -59,7 +59,7 @@
             <option value="0">JUNPUBLISHED</option>
         </field>
 		
-		<field name="approved" type="list" class="inputbox" 
+		<field name="approved" type="radio" class="btn-group" 
 		    label="COM_CROWDFUNDING_APPROVED" 
             description="COM_CROWDFUNDING_APPROVED_DESC" 
             filter="intval" 
@@ -77,7 +77,7 @@
             default="0" />
 
         
-        <field name="short_desc" type="textarea" class="inputbox"
+        <field name="short_desc" type="textarea" class="span6"
             label="COM_CROWDFUNDING_SHORT_DESCRIPTION" 
             description="COM_CROWDFUNDING_SHORT_DESCRIPTION_DESC" 
             rows="10" 
@@ -87,7 +87,7 @@
             label="JGLOBAL_DESCRIPTION" 
             description="COM_CROWDFUNDING_FIELD_PROJECT_DESCRIPTION" 
             filter="safehtml"
-            width="500"
+            class="span6" 
         />
             
             

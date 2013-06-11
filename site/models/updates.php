@@ -55,7 +55,7 @@ class CrowdFundingModelUpdates extends JModelList {
         /** @var $app JSite **/
 
         // Get project ID
-        $value = $app->input->get->get("id", 0, "uint");
+        $value = $app->input->get("id", 0, "uint");
         $this->setState($this->getName().'.id', $value);
         
         // Load the component parameters.

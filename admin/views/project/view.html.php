@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-class CrowdFundingViewProject extends JView {
+class CrowdFundingViewProject extends JViewLegacy {
     
     protected $state;
     protected $item;
@@ -59,18 +59,14 @@ class CrowdFundingViewProject extends JView {
         $this->documentTitle= $isNew  ? JText::_('COM_CROWDFUNDING_NEW_PROJECT')
                                       : JText::_('COM_CROWDFUNDING_EDIT_PROJECT');
 
-        if(!$isNew) {
-            JToolBarHelper::title($this->documentTitle, 'itp-edit-project');
-        } else {
-            JToolBarHelper::title($this->documentTitle, 'itp-add-project');
-        }
-		                             
+        JToolBarHelper::title($this->documentTitle);
+        
         JToolBarHelper::apply('project.apply');
         JToolBarHelper::save('project.save');
     
         if(!$isNew){
             JToolBarHelper::cancel('project.cancel', 'JTOOLBAR_CANCEL');
-        }else{
+        } else {
             JToolBarHelper::cancel('project.cancel', 'JTOOLBAR_CLOSE');
         }
         
@@ -86,8 +82,11 @@ class CrowdFundingViewProject extends JView {
 		$this->document->setTitle($this->documentTitle);
         
 		// Add behaviors
-        JHtml::_('behavior.tooltip');
+        JHtml::_('behavior.keepalive');
         JHtml::_('behavior.formvalidation');
+        JHtml::_('behavior.tooltip');
+        
+        JHtml::_('formbehavior.chosen', 'select');
         
 		// Add scripts
 		$this->document->addScript('../media/'.$this->option.'/js/admin/'.JString::strtolower($this->getName()).'.js');

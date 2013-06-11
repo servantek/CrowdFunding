@@ -14,38 +14,45 @@
 // no direct access
 defined('_JEXEC') or die;
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_crowdfunding'); ?>" method="post" name="adminForm" id="adminForm" class="form-validate" >
-    <div class="width-40 fltlft">
-        <fieldset class="adminform">
-            <legend><?php echo JText::_("COM_CROWDFUNDING_TRANSACTION_MANAGER_LEGEND"); ?></legend>
-            
-            <ul class="adminformlist">
-                <li><?php echo $this->form->getLabel('investor_id'); ?>
-                <?php echo $this->form->getInput('investor_id'); ?></li>
-    
-                <li><?php echo $this->form->getLabel('txn_amount'); ?>
-                <?php echo $this->form->getInput('txn_amount'); ?></li>
+<div class="row-fluid">
+    <div class="span6 form-horizontal">
+        <form action="<?php echo JRoute::_('index.php?option=com_crowdfunding'); ?>" method="post" name="adminForm" id="adminForm" class="form-validate" >
+        
+            <fieldset>
                 
-                <li><?php echo $this->form->getLabel('txn_currency'); ?>
-                <?php echo $this->form->getInput('txn_currency'); ?></li>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('investor_id'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('investor_id'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('txn_amount'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('txn_amount'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('txn_currency'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('txn_currency'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('service_provider'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('service_provider'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('txn_status'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('txn_status'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('txn_id'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('txn_id'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('id'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('id'); ?></div>
+                </div>
                 
-                <li><?php echo $this->form->getLabel('service_provider'); ?>
-                <?php echo $this->form->getInput('service_provider'); ?></li>
-                
-                <li><?php echo $this->form->getLabel('txn_status'); ?>
-                <?php echo $this->form->getInput('txn_status'); ?></li>
-                
-                <li><?php echo $this->form->getLabel('txn_id'); ?>
-                <?php echo $this->form->getInput('txn_id'); ?></li>
-                
-                <li><?php echo $this->form->getLabel('id'); ?>
-                <?php echo $this->form->getInput('id'); ?></li>
-                
-            </ul>
-            
-        </fieldset>
+            </fieldset>
+        
+            <input type="hidden" name="task" value="" />
+            <?php echo JHtml::_('form.token'); ?>
+        </form>
     </div>
-
-    <input type="hidden" name="task" value="" />
-    <?php echo JHtml::_('form.token'); ?>
-</form>
+</div>

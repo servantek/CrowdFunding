@@ -14,35 +14,45 @@
 // no direct access
 defined('_JEXEC') or die;
 ?>
-<form enctype="multipart/form-data"  action="<?php echo JRoute::_('index.php?option=com_crowdfunding'); ?>" method="post" name="adminForm" id="adminForm" class="form-validate">
-    <div class="width-40 fltlft">
-        <fieldset class="adminform">
-            <legend><?php echo JText::_("COM_CROWDFUNDING_LOCATION_DATA"); ?></legend>
+<div class="row-fluid">
+    <div class="span6 form-horizontal">
+        <form enctype="multipart/form-data"  action="<?php echo JRoute::_('index.php?option=com_crowdfunding'); ?>" method="post" name="adminForm" id="adminForm" class="form-validate">
+        
+            <fieldset>
+                
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('name'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('name'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('latitude'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('latitude'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('longitude'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('longitude'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('country_code'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('country_code'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('timezone'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('timezone'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('published'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('published'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('id'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('id'); ?></div>
+                </div>
+                
+            </fieldset>
             
-            <ul class="adminformlist">
-                <li><?php echo $this->form->getLabel('name'); ?>
-                <?php echo $this->form->getInput('name'); ?></li>
-    
-                <li><?php echo $this->form->getLabel('latitude'); ?>
-                <?php echo $this->form->getInput('latitude'); ?></li>
-    
-    			<li><?php echo $this->form->getLabel('longitude'); ?>
-                <?php echo $this->form->getInput('longitude'); ?></li>
-                  
-    			<li><?php echo $this->form->getLabel('country_code'); ?>
-                <?php echo $this->form->getInput('country_code'); ?></li>  
-                
-    			<li><?php echo $this->form->getLabel('timezone'); ?>
-                <?php echo $this->form->getInput('timezone'); ?></li>  
-                
-                <li><?php echo $this->form->getLabel('published'); ?>
-                <?php echo $this->form->getInput('published'); ?></li>   
-                
-                <li><?php echo $this->form->getLabel('id'); ?>
-                <?php echo $this->form->getInput('id'); ?></li>
-            </ul>
-        </fieldset>
+            <input type="hidden" name="task" value="" />
+            <?php echo JHtml::_('form.token'); ?>
+        </form>
     </div>
-    <input type="hidden" name="task" value="" />
-    <?php echo JHtml::_('form.token'); ?>
-</form>
+</div>

@@ -15,12 +15,14 @@
 defined('_JEXEC') or die;
 ?>
 <tr>
-    <th width="1%"><input type="checkbox" name="checkall-toggle" value="" onclick="checkAll(this)" /></th>
+    <th width="1%" class="hidden-phone">
+		<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
+	</th>
 	<th class="title" >
 	     <?php echo JHtml::_('grid.sort',  'COM_CROWDFUNDING_TITLE', 'a.title', $this->listDirn, $this->listOrder); ?>
 	</th>
-	<th width="30%"><?php echo JText::_("COM_CROWDFUNDING_PROJECT"); ?></th>
-	<th width="10%"><?php echo JHtml::_('grid.sort',  'JDATE', 'a.record_date', $this->listDirn, $this->listOrder); ?></th>
-    <th width="3%" class="nowrap"><?php echo JHtml::_('grid.sort',  'JGRID_HEADING_ID', 'a.id', $this->listDirn, $this->listOrder); ?></th>
+	<th width="30%" class="center nowrap hidden-phone"><?php echo JText::_("COM_CROWDFUNDING_PROJECT"); ?></th>
+	<th width="10%" class="center nowrap hidden-phone"><?php echo JHtml::_('grid.sort',  'JDATE', 'a.record_date', $this->listDirn, $this->listOrder); ?></th>
+    <th width="3%"  class="center nowrap hidden-phone"><?php echo JHtml::_('grid.sort',  'JGRID_HEADING_ID', 'a.id', $this->listDirn, $this->listOrder); ?></th>
 </tr>
 	  

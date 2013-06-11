@@ -40,7 +40,7 @@ class CrowdfundingVersion {
      * 
      * @var integer
      */
-    public $devLevel  = '1';
+    public $devLevel  = '1.2';
     
     /**
      * Release Type

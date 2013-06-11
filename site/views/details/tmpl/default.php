@@ -19,6 +19,12 @@ defined('_JEXEC') or die;?>
     <h1><?php echo $this->escape($this->params->get('page_heading')); ?></h1>
     <?php endif; ?>
 	
+	<?php if($this->params->get("seo_project_title", 1)) {
+	    $headingTag = $this->params->get("seo_project_title_header", "h1");
+	?>
+	    <<?php echo $headingTag;?>><?php echo $this->item->title; ?></<?php echo $headingTag;?>>
+	<?php } ?>
+	
 	<?php if($this->item->event->beforeDisplayContent) {?>
 	<div class="row-fluid">
 		<div class="span12">
@@ -71,7 +77,6 @@ defined('_JEXEC') or die;?>
     		<?php }?>
     	</div>
 	</div>
-	
 	<?php 
 	if(!empty($this->item->event->onContentAfterDisplay)) {
 	    echo $this->item->event->onContentAfterDisplay; 

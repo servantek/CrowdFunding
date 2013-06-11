@@ -22,7 +22,7 @@ jimport( 'joomla.application.component.controller' );
  * @package     ITPrism Components
  * @subpackage  CrowdFunding
   */
-class CrowdFundingControllerComment extends JController {
+class CrowdFundingControllerComment extends JControllerLegacy {
     
 	/**
      * Method to get a model object, loading it if required.
@@ -47,7 +47,7 @@ class CrowdFundingControllerComment extends JController {
         
         // Get the input
 		$app     = JFactory::getApplication();
-		$itemId  = $app->input->get->get('id', 0, 'int');
+		$itemId  = $app->input->get('id', 0, 'int');
         $userId  = JFactory::getUser()->id;
     
 		// Get the model

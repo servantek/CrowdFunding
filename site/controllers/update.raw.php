@@ -22,7 +22,7 @@ jimport( 'joomla.application.component.controller' );
  * @package     ITPrism Components
  * @subpackage  CrowdFunding
   */
-class CrowdFundingControllerUpdate extends JController {
+class CrowdFundingControllerUpdate extends JControllerLegacy {
     
 	/**
      * Method to get a model object, loading it if required.

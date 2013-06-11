@@ -17,7 +17,7 @@ defined('_JEXEC') or die;
 jimport('joomla.application.component.view');
 jimport('joomla.application.categories');
 
-class CrowdFundingViewTransactions extends JView {
+class CrowdFundingViewTransactions extends JViewLegacy {
     
     protected $state;
     protected $items;
@@ -48,8 +48,12 @@ class CrowdFundingViewTransactions extends JView {
         // Add submenu
         CrowdFundingHelper::addSubmenu($this->getName());
         
+        // Prepare sorting data
+        $this->prepareSorting();
+        
         // Prepare actions
         $this->addToolbar();
+        $this->addSidebar();
         $this->setDocument();
         
         // Include HTML helper
@@ -60,6 +64,42 @@ class CrowdFundingViewTransactions extends JView {
     }
     
     /**
+     * Prepare sortable fields, sort values and filters.
+     */
+    protected function prepareSorting() {
+    
+        // Prepare filters
+        $this->listOrder  = $this->escape($this->state->get('list.ordering'));
+        $this->listDirn   = $this->escape($this->state->get('list.direction'));
+        $this->saveOrder  = (strcmp($this->listOrder, 'a.ordering') != 0 ) ? false : true;
+    
+        if ($this->saveOrder) {
+            $this->saveOrderingUrl = 'index.php?option='.$this->option.'&task='.$this->getName().'.saveOrderAjax&format=raw';
+            JHtml::_('sortablelist.sortable', $this->getName().'List', 'adminForm', strtolower($this->listDirn), $this->saveOrderingUrl);
+        }
+    
+        $this->sortFields = array(
+            'b.name'              => JText::_('COM_CROWDFUNDING_BENEFICIARY'),
+            'e.sender'            => JText::_('COM_CROWDFUNDING_SENDER'),
+            'c.title'             => JText::_('COM_CROWDFUNDING_PROJECT'),
+            'a.txn_amount'        => JText::_('COM_CROWDFUNDING_AMOUNT'),
+            'a.txn_date'          => JText::_('COM_CROWDFUNDING_DATE'),
+            'a.service_provider'  => JText::_('COM_CROWDFUNDING_PAYMENT_GETAWAY'),
+            'a.id'                => JText::_('JGRID_HEADING_ID')
+        );
+    
+    }
+    
+    /**
+     * Add a menu on the sidebar of page
+     */
+    protected function addSidebar() {
+    
+        $this->sidebar = JHtmlSidebar::render();
+    
+    }
+    
+    /**
      * Add the page title and toolbar.
      *
      * @since   1.6
@@ -67,12 +107,12 @@ class CrowdFundingViewTransactions extends JView {
     protected function addToolbar(){
         
         // Set toolbar items for the page
-        JToolBarHelper::title(JText::_('COM_CROWDFUNDING_TRANSACTIONS_MANAGER'), 'itp-transactions');
+        JToolBarHelper::title(JText::_('COM_CROWDFUNDING_TRANSACTIONS_MANAGER'));
         JToolBarHelper::editList('transaction.edit');
         JToolBarHelper::divider();
         JToolBarHelper::deleteList(JText::_("COM_CROWDFUNDING_DELETE_ITEMS_QUESTION"), "transactions.delete");
         JToolBarHelper::divider();
-        JToolBarHelper::custom('projects.backToDashboard', "itp-dashboard-back", "", JText::_("COM_CROWDFUNDING_DASHBOARD"), false);
+        JToolBarHelper::custom('projects.backToDashboard', "dashboard", "", JText::_("COM_CROWDFUNDING_DASHBOARD"), false);
         
     }
     
@@ -83,9 +123,14 @@ class CrowdFundingViewTransactions extends JView {
 	 */
 	protected function setDocument() {
 	    
-	    JHtml::_('behavior.tooltip');
-	    
 		$this->document->setTitle(JText::_('COM_CROWDFUNDING_TRANSACTIONS_MANAGER'));
+		
+		// Scripts
+		JHtml::_('behavior.multiselect');
+		JHtml::_('behavior.tooltip');
+		JHtml::_('formbehavior.chosen', 'select');
+		
+		$this->document->addScript('../media/'.$this->option.'/js/admin/list.js');
 	}
     
 }

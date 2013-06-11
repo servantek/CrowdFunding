@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.model');
 
-class CrowdFundingModelBacking extends JModel {
+class CrowdFundingModelBacking extends JModelLegacy {
     
     protected $item;
     

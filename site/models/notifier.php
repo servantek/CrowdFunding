@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.model');
 
-class CrowdFundingModelNotifier extends JModel {
+class CrowdFundingModelNotifier extends JModelLegacy {
     
     /**
      * Send mail to administrator and notify him about new transaction.

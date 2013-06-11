@@ -33,18 +33,15 @@ defined('_JEXEC') or die;
             
             <?php echo $this->form->getLabel('image'); ?>
             <div class="fileupload fileupload-new" data-provides="fileupload">
-                <div class="input-append">
-                    <div class="uneditable-input span3">
-                        <i class="icon-file fileupload-exists"></i> 
-                        <span class="fileupload-preview"></span>
-                    </div>
-                    <span class="btn btn-file">
-                        <span class="fileupload-new"><?php echo JText::_("COM_CROWDFUNDING_SELECT_FILE");?></span>
-                        <span class="fileupload-exists"><?php echo JText::_("COM_CROWDFUNDING_CHANGE");?></span>
-                        <?php echo $this->form->getInput('image'); ?>
+                <span class="btn btn-file">
+                    <span class="fileupload-new"><?php echo JText::_("COM_CROWDFUNDING_SELECT_FILE");?></span>
+                    <span class="fileupload-exists">
+                        <?php echo JText::_("COM_CROWDFUNDING_CHANGE");?>
                     </span>
-                    <a href="#" class="btn fileupload-exists" data-dismiss="fileupload"><?php echo JText::_("COM_CROWDFUNDING_REMOVE");?></a>
-                </div>
+                <?php echo $this->form->getInput('image'); ?>
+                </span>
+                <span class="fileupload-preview"></span>
+                <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
             </div>
             
             <?php echo $this->form->getInput('id'); ?>

@@ -14,22 +14,26 @@
 // No direct access
 defined('_JEXEC') or die;
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_crowdfunding'); ?>" method="post" name="adminForm" id="adminForm" class="form-validate" enctype="multipart/form-data">
-
-    <div class="width-40 fltlft">
-        <fieldset class="adminform">
-            <legend><?php echo $this->legend; ?></legend>
-            
-            <ul class="adminformlist">
-                <li><?php echo $this->form->getLabel('data'); ?>
-                <?php echo $this->form->getInput('data'); ?></li>
+<div class="row-fluid">
+    <div class="span6 form-horizontal">
+        <form action="<?php echo JRoute::_('index.php?option=com_crowdfunding'); ?>" method="post" name="adminForm" id="adminForm" class="form-validate" enctype="multipart/form-data">
+        
+            <fieldset>
+                <legend><?php echo $this->legend; ?></legend>
                 
-                <li><?php echo $this->form->getLabel('reset_id'); ?>
-                <?php echo $this->form->getInput('reset_id'); ?></li>
-            </ul>
-		</fieldset>
-	</div>
-    
-    <input type="hidden" name="task" value="" id="task"/>
-    <?php echo JHtml::_('form.token'); ?>
-</form>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('data'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('data'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('reset_id'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('reset_id'); ?></div>
+                </div>
+                
+    		</fieldset>
+            
+            <input type="hidden" name="task" value="" id="task"/>
+            <?php echo JHtml::_('form.token'); ?>
+        </form>
+    </div>
+</div>

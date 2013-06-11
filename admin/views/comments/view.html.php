@@ -16,11 +16,18 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-class CrowdFundingViewComments extends JView {
+class CrowdFundingViewComments extends JViewLegacy {
     
     protected $state;
     protected $items;
     protected $pagination;
+    
+    protected $option;
+    
+    public function __construct($config) {
+        parent::__construct($config);
+        $this->option = JFactory::getApplication()->input->get("option");
+    }
     
     public function display($tpl = null){
         
@@ -36,11 +43,47 @@ class CrowdFundingViewComments extends JView {
         // Add submenu
         CrowdFundingHelper::addSubmenu($this->getName());
         
+        // Prepare sorting data
+        $this->prepareSorting();
+        
         // Prepare actions
         $this->addToolbar();
+        $this->addSidebar();
         $this->setDocument();
         
         parent::display($tpl);
+    }
+    
+    /**
+     * Prepare sortable fields, sort values and filters.
+     */
+    protected function prepareSorting() {
+    
+        // Prepare filters
+        $this->listOrder  = $this->escape($this->state->get('list.ordering'));
+        $this->listDirn   = $this->escape($this->state->get('list.direction'));
+        $this->saveOrder  = (strcmp($this->listOrder, 'a.ordering') != 0 ) ? false : true;
+    
+        if ($this->saveOrder) {
+            $this->saveOrderingUrl = 'index.php?option='.$this->option.'&task='.$this->getName().'.saveOrderAjax&format=raw';
+            JHtml::_('sortablelist.sortable', $this->getName().'List', 'adminForm', strtolower($this->listDirn), $this->saveOrderingUrl);
+        }
+    
+        $this->sortFields = array(
+                'a.title'         => JText::_('COM_CROWDFUNDING_TITLE'),
+                'a.record_date'   => JText::_('JDATE'),
+                'a.id'            => JText::_('JGRID_HEADING_ID')
+        );
+    
+    }
+    
+    /**
+     * Add a menu on the sidebar of page
+     */
+    protected function addSidebar() {
+    
+        $this->sidebar = JHtmlSidebar::render();
+    
     }
     
     /**
@@ -51,7 +94,7 @@ class CrowdFundingViewComments extends JView {
     protected function addToolbar(){
         
         // Set toolbar items for the page
-        JToolBarHelper::title(JText::_('COM_CROWDFUNDING_COMMENTS_MANAGER'), 'itp-comments');
+        JToolBarHelper::title(JText::_('COM_CROWDFUNDING_COMMENTS_MANAGER'));
         JToolBarHelper::editList('comment.edit');
         JToolBarHelper::divider();
         JToolBarHelper::publishList("comments.publish");
@@ -59,7 +102,7 @@ class CrowdFundingViewComments extends JView {
         JToolBarHelper::divider();
         JToolBarHelper::deleteList(JText::_("COM_CROWDFUNDING_DELETE_ITEMS_QUESTION"), "comments.delete");
         JToolBarHelper::divider();
-        JToolBarHelper::custom('comments.backToDashboard', "itp-dashboard-back", "", JText::_("COM_CROWDFUNDING_DASHBOARD"), false);
+        JToolBarHelper::custom('comments.backToDashboard', "dashboard", "", JText::_("COM_CROWDFUNDING_DASHBOARD"), false);
         
     }
     
@@ -68,7 +111,16 @@ class CrowdFundingViewComments extends JView {
 	 * @return void
 	 */
 	protected function setDocument() {
-		$this->document->setTitle(JText::_('COM_CROWDFUNDING_COMMENTS_MANAGER'));
+		
+	    $this->document->setTitle(JText::_('COM_CROWDFUNDING_COMMENTS_MANAGER'));
+		
+		// Scripts
+		JHtml::_('behavior.multiselect');
+		JHtml::_('bootstrap.tooltip');
+		
+		JHtml::_('formbehavior.chosen', 'select');
+		
+		$this->document->addScript('../media/'.$this->option.'/js/admin/list.js');
 	}
     
 }

@@ -59,7 +59,7 @@ class CrowdFundingModelFunders extends JModelList {
         $this->setState('params', $params);
         
         // Get project id
-        $value      = $app->input->get->get("id", 0, "uint");
+        $value      = $app->input->get("id", 0, "uint");
         $this->setState($this->context.'.project_id', $value);
         
         parent::populateState("a.txn_date", "DESC");

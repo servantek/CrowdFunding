@@ -21,7 +21,7 @@ jimport('joomla.application.component.controller');
  * @subpackage	Payments
  * @since		2.5
  */
-class CrowdFundingControllerNotifier extends JController {
+class CrowdFundingControllerNotifier extends JControllerLegacy {
    
 	/**
      * Method to get a model object, loading it if required.

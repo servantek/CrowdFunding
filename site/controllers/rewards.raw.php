@@ -22,7 +22,7 @@ jimport( 'joomla.application.component.controller' );
  * @package     CrowdFunding
  * @subpackage  Components
  */
-class CrowdFundingControllerRewards extends JController {
+class CrowdFundingControllerRewards extends JControllerLegacy {
     
 	/**
      * Method to get a model object, loading it if required.

@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-class CrowdFundingViewEmbed extends JView {
+class CrowdFundingViewEmbed extends JViewLegacy {
     
     protected $state;
     protected $item;
@@ -118,7 +118,7 @@ class CrowdFundingViewEmbed extends JView {
      */
     protected function prepareEmailForm($item) {
         
-        $model         = JModel::getInstance("FriendMail", "CrowdFundingModel", $config = array('ignore_request' => false));
+        $model         = JModelLegacy::getInstance("FriendMail", "CrowdFundingModel", $config = array('ignore_request' => false));
         
         // Prepare default content of the form
         $formData = array(
@@ -139,8 +139,6 @@ class CrowdFundingViewEmbed extends JView {
         // Scripts
         JHtml::_('behavior.tooltip');
         JHtml::_('behavior.formvalidation');
-        
-//         $this->document->addScript(JURI::root() . 'media/'.$this->option.'/js/site/comments.js');
         
     }
     

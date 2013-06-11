@@ -17,7 +17,7 @@ defined('_JEXEC') or die;
 jimport('joomla.application.categories');
 jimport('joomla.application.component.view');
 
-class CrowdFundingViewProject extends JView {
+class CrowdFundingViewProject extends JViewLegacy {
     
     protected $form       = null;
     protected $state      = null;
@@ -109,7 +109,7 @@ class CrowdFundingViewProject extends JView {
         $app = JFactory::getApplication();
         /** @var $app JSite **/
         
-        $model             = JModel::getInstance("Intro", "CrowdFundingModel", $config = array('ignore_request' => false));
+        $model             = JModelLegacy::getInstance("Intro", "CrowdFundingModel", $config = array('ignore_request' => false));
         $this->state       = $model->getState();
         $this->params      = $this->state->get("params");
         
@@ -122,7 +122,7 @@ class CrowdFundingViewProject extends JView {
     
     protected function prepareBasic() {
         
-        $model             = JModel::getInstance("Project", "CrowdFundingModel", $config = array('ignore_request' => false));
+        $model             = JModelLegacy::getInstance("Project", "CrowdFundingModel", $config = array('ignore_request' => false));
         
         $this->state       = $model->getState();
         $this->params      = $this->state->get("params");
@@ -143,7 +143,7 @@ class CrowdFundingViewProject extends JView {
     
     protected function prepareFunding() {
         
-        $model             = JModel::getInstance("Funding", "CrowdFundingModel", $config = array('ignore_request' => false));
+        $model             = JModelLegacy::getInstance("Funding", "CrowdFundingModel", $config = array('ignore_request' => false));
         
         // Initialise variables
         $this->state       = $model->getState();
@@ -184,7 +184,7 @@ class CrowdFundingViewProject extends JView {
     
     protected function prepareStory() {
         
-        $model             = JModel::getInstance("Story", "CrowdFundingModel", $config = array('ignore_request' => false));
+        $model             = JModelLegacy::getInstance("Story", "CrowdFundingModel", $config = array('ignore_request' => false));
         
         // Initialise variables
         $this->state       = $model->getState();
@@ -209,7 +209,7 @@ class CrowdFundingViewProject extends JView {
     
     protected function prepareRewards() {
         
-        $model             = JModel::getInstance("Rewards", "CrowdFundingModel", $config = array('ignore_request' => false));
+        $model             = JModelLegacy::getInstance("Rewards", "CrowdFundingModel", $config = array('ignore_request' => false));
         
         // Initialise variables
         $this->state       = $model->getState();
@@ -271,10 +271,12 @@ class CrowdFundingViewProject extends JView {
         $pathway->addItem($this->pathwayName);
         
         // Head styles
-        $this->document->addStyleSheet('media/'.$this->option.'/css/site/bootstrap.min.css');
         $this->document->addStyleSheet('media/'.$this->option.'/css/site/style.css');
         
         // Add scripts
+        JHtml::_('bootstrap.framework');
+        JHtml::_('formbehavior.chosen', 'select');
+        
         JHtml::_('behavior.keepalive');
         JHtml::_('behavior.tooltip');
         JHtml::_('behavior.formvalidation');
@@ -283,8 +285,10 @@ class CrowdFundingViewProject extends JView {
             
             case "rewards":
                 
+                // Styles
                 $this->document->addStyleSheet('media/'.$this->option.'/css/jquery.pnotify.default.css');
                 
+                // Scripts
 		        $this->document->addScript('media/'.$this->option.'/js/jquery.pnotify.min.js');
 		        $this->document->addScript('media/'.$this->option.'/js/helper.js');
 		        $this->document->addScript('media/'.$this->option.'/js/site/project_rewards.js');
@@ -296,20 +300,21 @@ class CrowdFundingViewProject extends JView {
 
             case "story":
                 
+                // Styles
                 $this->document->addStyleSheet('media/'.$this->option.'/css/bootstrap-fileupload.min.css');
                 
-                $this->document->addScript('media/'.$this->option.'/js/bootstrap.min.js');
+                // Scripts
                 $this->document->addScript('media/'.$this->option.'/js/bootstrap-fileupload.min.js');
-                
                 $this->document->addScript('media/'.$this->option.'/js/site/project_story.js');
                 
                 break;
                     
             default: // Basic
                 
+                // Styles
                 $this->document->addStyleSheet('media/'.$this->option.'/css/bootstrap-fileupload.min.css');
                 
-                $this->document->addScript('media/'.$this->option.'/js/bootstrap.min.js');
+                // Scripts
                 $this->document->addScript('media/'.$this->option.'/js/bootstrap-fileupload.min.js');
                 $this->document->addScript('media/'.$this->option.'/js/bootstrap-maxlength.min.js');
 		        $this->document->addScript('media/'.$this->option.'/js/site/project_basic.js');

@@ -18,10 +18,12 @@ defined('_JEXEC') or die;
 	    $ordering  = ($this->listOrder == 'a.ordering');
 	?>
 	<tr class="row<?php echo $i % 2; ?>">
-        <td><?php echo JHtml::_('grid.id', $i, $item->id); ?></td>
+	    <td class="center hidden-phone">
+            <?php echo JHtml::_('grid.id', $i, $item->id); ?>
+        </td>
 		<td><a href="<?php echo JRoute::_("index.php?option=com_crowdfunding&view=transaction&layout=edit&id=".$item->id);?>"><?php echo $item->beneficiary; ?></a></td>
-		<td><?php echo $item->sender; ?></td>
-		<td>
+		<td class="center hidden-phone"><?php echo $item->sender; ?></td>
+		<td class="center hidden-phone">
 			<a href="<?php echo JRoute::_("index.php?option=com_crowdfunding&view=transactions&filter_search=pid:".$item->project_id);?>">
 		    <?php echo JHtmlString::truncate(strip_tags($item->project), 53); ?>
 		    </a>
@@ -34,18 +36,18 @@ defined('_JEXEC') or die;
 		    echo $item->txn_amount;
 		}
 		?></td>
-		<td class="center"><?php echo $item->txn_date; ?></td>
-		<td class="center"><?php echo $item->service_provider; ?></td>
-		<td class="center"><?php echo $item->txn_id; ?>
-		<td class="center"><?php echo $item->txn_status; ?></td>
-		<td class="center">
+		<td class="center hidden-phone"><?php echo $item->txn_date; ?></td>
+		<td class="center hidden-phone"><?php echo $item->service_provider; ?></td>
+		<td class="center hidden-phone"><?php echo $item->txn_id; ?>
+		<td class="center hidden-phone"><?php echo $item->txn_status; ?></td>
+		<td class="center hidden-phone">
 		<?php if(!$item->reward_id) { ?>
 		<img src="../media/com_crowdfunding/images/noreward_16.png" alt="<?php echo JText::_('COM_CROWDFUNDING_REWARD_NOT_SELECTED'); ?>" width="16" height="16"/>
 		<?php } else {?>
 		<img src="../media/com_crowdfunding/images/reward_16.png" alt="<?php echo JText::_('COM_CROWDFUNDING_REWARD_SELECTED'); ?>" title="<?php echo JText::sprintf('COM_CROWDFUNDING_REWARD_TOOLTIP', $item->reward); ?>" width="16" height="16" class="hasTip" />
 		<?php }?>
 		</td>
-        <td class="center"><?php echo $item->id;?></td>
+        <td class="center hidden-phone"><?php echo $item->id;?></td>
 	</tr>
 <?php }?>
 	  

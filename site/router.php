@@ -58,7 +58,7 @@ function CrowdFundingBuildRoute(&$query){
 			unset($query['view']);
 		}
 	};
-    
+	
     // are we dealing with a category that is attached to a menu item?
 	if (isset($view) AND ($mView == $view) AND (isset($query['id'])) AND ($mId == intval($query['id']))) {
 		unset($query['view']);
@@ -151,7 +151,7 @@ function CrowdFundingBuildRoute(&$query){
 	    $segments[] = $query["screen"];
 	    unset($query['screen']);
 	}
-    
+	
     return $segments;
 }
 
@@ -231,19 +231,33 @@ function CrowdFundingParseRoute($segments){
 	            
 	            $itemId         = (int)$segments[$count - 2];
 	            
+	            // Get catid from menu item
+	            if(!empty($item->query["id"])) {
+	                $catId    = (int)$item->query["id"];
+	            } else {
+	                $catId    = (int)$segments[$count - 3];
+	            }
+	            
         	    $vars['view']   = 'backing';
         		$vars['id']     = (int)$itemId;
+        		$vars['catid']  = (int)$catId;
         		
 	            break;
 	            
             case "embed": // Backing without reward
 	            
-	            $itemId         = (int)$segments[$count - 2];
-// 	            $catId          = (int)$segments[$count - 3];
-	            
+                $itemId         = (int)$segments[$count - 2];
+                
+                // Get catid from menu item
+                if(!empty($item->query["id"])) {
+                    $catId    = (int)$item->query["id"];
+                } else {
+                    $catId    = (int)$segments[$count - 3];
+                }
+                
         	    $vars['view']   = 'embed';
         		$vars['id']     = (int)$itemId;
-//         		$vars['catid']  = (int)$catId;
+        		$vars['catid']  = (int)$catId;
         		
 	            break;
 	            
@@ -252,11 +266,17 @@ function CrowdFundingParseRoute($segments){
             case "funders":    
                 
 	            $itemId         = (int)$segments[$count - 2];
-// 	            $catId          = (int)$segments[$count - 3];
+	            
+	            // Get catid from menu item
+	            if(!empty($item->query["id"])) {
+	                $catId    = (int)$item->query["id"];
+	            } else {
+	                $catId    = (int)$segments[$count - 3];
+	            }
 	            
         	    $vars['view']   = 'details';
         		$vars['id']     = (int)$itemId;
-//         		$vars['catid']  = (int)$catId;
+        		$vars['catid']  = (int)$catId;
         		
         		// Get screen
         		$screen    = $segments[$count - 1];

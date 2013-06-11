@@ -2,7 +2,7 @@
 <form>
     <fieldset name="funding" label="COM_CROWDFUNDING_FUNDING_DEFAULT_LABEL" addfieldpath="/administrator/components/com_crowdfunding/models/fields">
 
-        <field name="goal" type="Goal" class="span6"
+        <field name="goal" type="Goal" class="span3"
             label="COM_CROWDFUNDING_FIELD_FUNDING_GOAL" 
             description="COM_CROWDFUNDING_FIELD_FUNDING_GOAL_DESC"
             size="40" 

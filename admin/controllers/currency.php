@@ -14,16 +14,16 @@
 // No direct access
 defined('_JEXEC') or die;
 
-jimport('itprism.controller.form');
+jimport('itprism.controller.form.backend');
 
 /**
  * CrowdFunding currency controller class.
  *
- * @package		ITPrism Components
- * @subpackage	CrowdFunding
+ * @package		CrowdFunding
+ * @subpackage	Components
  * @since		1.6
  */
-class CrowdFundingControllerCurrency extends ITPrismControllerForm {
+class CrowdFundingControllerCurrency extends ITPrismControllerFormBackend {
     
     /**
      * Save an item
@@ -35,10 +35,13 @@ class CrowdFundingControllerCurrency extends ITPrismControllerForm {
         $app = JFactory::getApplication();
         /** @var $app JAdministrator **/
         
-        $msg     = "";
-        $link    = "";
         $data    = $app->input->post->get('jform', array(), 'array');
         $itemId  = JArrayHelper::getValue($data, "id");
+        
+        $redirectData = array(
+            "task"  => $this->getTask(),
+            "id"    => $itemId
+        );
         
         $model   = $this->getModel();
         /** @var $model CrowdFundingModelCurrency **/
@@ -55,28 +58,18 @@ class CrowdFundingControllerCurrency extends ITPrismControllerForm {
         
         // Check for errors.
         if($validData === false){
-            $this->defaultLink .= "&view=".$this->view_item."&layout=edit";
-            
-            if($itemId) {
-                $this->defaultLink .= "&id=" . $itemId;
-            } 
-            
-            $this->setMessage($model->getError(), "notice");
-            $this->setRedirect(JRoute::_($this->defaultLink, false));
-            return;
+             $this->displayNotice($form->getErrors(), $redirectData);
+             return;
         }
             
-        try{
+        try {
             $itemId = $model->save($validData);
-        }catch(Exception $e){
+        } catch(Exception $e) {
             JLog::add($e->getMessage());
             throw new Exception(JText::_('COM_CROWDFUNDING_ERROR_SYSTEM'));
         }
         
-        $msg  = JText::_('COM_CROWDFUNDING_CURRENCY_SAVED');
-        $link = $this->prepareRedirectLink($itemId);
-        
-        $this->setRedirect(JRoute::_($link, false), $msg);
+        $this->displayMessage(JText::_('COM_CROWDFUNDING_CURRENCY_SAVED'), $redirectData);
     
     }
     

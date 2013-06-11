@@ -15,18 +15,18 @@
 defined('_JEXEC') or die;
 ?>
 <tr>
-    <th width="1%">
-        <input type="checkbox" name="checkall-toggle" value="" onclick="checkAll(this)" />
-    </th>
+    <th width="1%" class="hidden-phone">
+		<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
+	</th>
 	<th class="title" >
 	     <?php echo JHtml::_('grid.sort',  'COM_CROWDFUNDING_TITLE', 'a.title', $this->listDirn, $this->listOrder); ?>
 	</th>
-	<th width="20%">
+	<th width="10%" class="nowrap center">
 	    <?php echo JHtml::_('grid.sort',  'COM_CROWDFUNDING_ABBR', 'a.abbr', $this->listDirn, $this->listOrder); ?>
 	</th>
-	<th width="10%">
+	<th width="10%" class="nowrap center hidden-phone">
         <?php echo JText::_('COM_CROWDFUNDING_SYMBOL'); ?>
     </th>
-    <th width="3%" class="nowrap"><?php echo JHtml::_('grid.sort',  'JGRID_HEADING_ID', 'a.id', $this->listDirn, $this->listOrder); ?></th>
+    <th width="3%" class="nowrap center hidden-phone"><?php echo JHtml::_('grid.sort',  'JGRID_HEADING_ID', 'a.id', $this->listDirn, $this->listOrder); ?></th>
 </tr>
 	  

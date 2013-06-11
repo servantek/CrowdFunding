@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
 ?>
 <?php echo $this->loadTemplate("nav");?>
 <div class="row-fluid">
-    <form action="<?php echo JRoute::_('index.php?option=com_crowdfunding'); ?>" method="post" name="projectForm" id="crowdf-funding-form" class="form-validate" enctype="multipart/form-data">
+    <form action="<?php echo JRoute::_('index.php?option=com_crowdfunding'); ?>" method="post" name="projectForm" id="crowdf-funding-form" class="form-validate" autocomplete="off">
         
         <div class="row-fluid">
             <div class="span2"><?php echo $this->form->getLabel('goal'); ?></div>

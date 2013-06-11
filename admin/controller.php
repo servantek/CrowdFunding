@@ -14,7 +14,7 @@
 // no direct access
 defined('_JEXEC') or die;
 
-jimport( 'joomla.application.component.controller' );
+jimport('joomla.application.component.controller');
 
 /**
  * Default controller
@@ -22,7 +22,7 @@ jimport( 'joomla.application.component.controller' );
  * @package		ITPrism Components
  * @subpackage	CrowdFunding
   */
-class CrowdFundingController extends JController {
+class CrowdFundingController extends JControllerLegacy {
     
 	public function display( ) {
 
@@ -33,9 +33,6 @@ class CrowdFundingController extends JController {
         
         $document = JFactory::getDocument();
 		/** @var $document JDocumentHtml **/
-        
-        // Add component style
-        $document->addStyleSheet('../media/'.$option.'/css/admin/style.css');
         
         $viewName      = $app->input->getCmd('view', 'dashboard');
         $app->input->set("view", $viewName);

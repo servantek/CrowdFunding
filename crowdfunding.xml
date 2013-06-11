@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="component" version="2.5" method="upgrade">
+<extension type="component" version="3.1" method="upgrade">
 	<name>COM_CROWDFUNDING</name>
 	<author>Todor Iliev</author>
 	<authorEmail>todor@itprism.com</authorEmail>
 	<authorUrl>http://itprism.com</authorUrl>
 	<copyright>Copyright (C) 2010 Todor Iliev ( ITPrism.com )</copyright>
 	<license>http://www.gnu.org/copyleft/gpl.html</license>
-	<version>1.1.1</version>
+	<version>1.1.2</version>
 	<creationDate>16 June, 2013</creationDate>
 	<description>COM_CROWDFUNDING_DESCRIPTION</description>
 
@@ -52,7 +52,7 @@
 	</languages>
 	
 	<administration>
-		<menu img="../media/com_crowdfunding/images/menu_crowdfunding.png" link="option=com_crowdfunding">COM_CROWDFUNDING</menu>
+		<menu link="option=com_crowdfunding">COM_CROWDFUNDING</menu>
 	
 		<files folder="admin">		    		
 			<folder>controllers</folder>

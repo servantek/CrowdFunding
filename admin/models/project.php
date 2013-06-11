@@ -143,4 +143,18 @@ class CrowdFundingModelProject extends JModelAdmin {
 
 		return true;
 	}
+	
+	/**
+	 * A protected method to get a set of ordering conditions.
+	 *
+	 * @param	object	A record object.
+	 *
+	 * @return	array	An array of conditions to add to add to ordering queries.
+	 * @since	1.6
+	 */
+	protected function getReorderConditions($table) {
+	    $condition   = array();
+	    $condition[] = 'catid = '.(int) $table->catid;
+	    return $condition;
+	}
 }

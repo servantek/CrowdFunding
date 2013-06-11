@@ -354,7 +354,7 @@ form.bs-docs-example {
 }
 
 .cf-transactions th{
-	text-align: center;
+	text-align: center !important;
 }
 
 .cf-funder-row {

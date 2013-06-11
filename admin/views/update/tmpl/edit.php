@@ -14,31 +14,33 @@
 // no direct access
 defined('_JEXEC') or die;
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_crowdfunding'); ?>" method="post" name="adminForm" id="adminForm" class="form-validate" >
-    <div class="width-40 fltlft">
-        <fieldset class="adminform">
-            <legend><?php echo JText::_("COM_CROWDFUNDING_UPDATE_MANAGER_LEGEND"); ?></legend>
+<div class="row-fluid">
+    <div class="span6 form-horizontal">
+        <form action="<?php echo JRoute::_('index.php?option=com_crowdfunding'); ?>" method="post" name="adminForm" id="adminForm" class="form-validate" >
             
-            <ul class="adminformlist">
-                <li><?php echo $this->form->getLabel('title'); ?>
-                <?php echo $this->form->getInput('title'); ?></li>
-    
-                <li><?php echo $this->form->getLabel('id'); ?>
-                <?php echo $this->form->getInput('id'); ?></li>
+            <fieldset>
+            
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('title'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('title'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('id'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('id'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('project_id'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('project_id'); ?></div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label"><?php echo $this->form->getLabel('description'); ?></div>
+    				<div class="controls"><?php echo $this->form->getInput('description'); ?></div>
+                </div>
                 
-                <li><?php echo $this->form->getLabel('project_id'); ?>
-                <?php echo $this->form->getInput('project_id'); ?></li>
-            </ul>
-            
-            <div class="clr"></div>
-            <?php echo $this->form->getLabel('description'); ?>
-            <div class="clr"></div>
-            <?php echo $this->form->getInput('description'); ?>
-            <div class="clr"></div>
-            
-        </fieldset>
+            </fieldset>
+        
+            <input type="hidden" name="task" value="" />
+            <?php echo JHtml::_('form.token'); ?>
+        </form>
     </div>
-
-    <input type="hidden" name="task" value="" />
-    <?php echo JHtml::_('form.token'); ?>
-</form>
+</div>

@@ -14,7 +14,7 @@
 // no direct access
 defined('_JEXEC') or die;
 
-jimport('itprism.controller.default');
+jimport('joomla.application.component.controller');
 
 /**
  * CrowdFunding rewards controller
@@ -22,7 +22,7 @@ jimport('itprism.controller.default');
  * @package     CrowdFunding
  * @subpackage  Components
  */
-class CrowdFundingControllerRewards extends ITPrismControllerDefault {
+class CrowdFundingControllerRewards extends JControllerLegacy {
     
 	/**
      * Method to get a model object, loading it if required.
@@ -46,10 +46,9 @@ class CrowdFundingControllerRewards extends ITPrismControllerDefault {
  
         $userId = JFactory::getUser()->id;
         if(!$userId) {
-            $redirectData = array(
-                "force_direction" => "index.php?option=com_users&view=login"
-            );
-            $this->displayNotice(JText::_('COM_CROWDFUNDING_ERROR_NOT_LOG_IN'), $redirectData);
+            $this->setMessage( JText::_("COM_CROWDFUNDING_ERROR_NOT_LOG_IN"), "notice");
+            $link = "index.php?option=com_users&view=login";
+            $this->setRedirect(JRoute::_($link, false));
             return;
         }
         
@@ -94,8 +93,9 @@ class CrowdFundingControllerRewards extends ITPrismControllerDefault {
             
         }
         
-		// Redirect to next page
-		$this->displayMessage(JText::_("COM_CROWDFUNDING_REWARDS_SUCCESSFULY_SAVED"), $redirectData);
+        // Redirect to next page
+        $link = "index.php?option=com_crowdfunding&view=project&layout=rewards&id=".(int)$itemId;
+        $this->setRedirect(JRoute::_($link, false), JText::_("COM_CROWDFUNDING_REWARDS_SUCCESSFULY_SAVED"));
 			
     }
 

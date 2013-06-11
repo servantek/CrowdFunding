@@ -14,7 +14,7 @@
 // no direct access
 defined('_JEXEC') or die;
 
-jimport('itprism.controller.default');
+jimport('joomla.application.component.controller');
 
 /**
  * CrowdFunding project controller
@@ -22,7 +22,7 @@ jimport('itprism.controller.default');
  * @package     CrowdFunding
  * @subpackage  Components
  */
-class CrowdFundingControllerProjects extends ITPrismControllerDefault {
+class CrowdFundingControllerProjects extends JControllerLegacy {
     
 	/**
      * Method to get a model object, loading it if required.
@@ -47,10 +47,10 @@ class CrowdFundingControllerProjects extends ITPrismControllerDefault {
 		
         $userId = JFactory::getUser()->id;
         if(!$userId) {
-            $redirectData = array(
-                "force_direction" => "index.php?option=com_users&view=login"
-            );
-            $this->displayNotice(JText::_('COM_CROWDFUNDING_ERROR_NOT_LOG_IN'), $redirectData);
+            
+            $this->setMessage(JText::_("COM_CROWDFUNDING_ERROR_NOT_LOG_IN"), "notice");
+            $link = "index.php?option=com_users&view=login";
+            $this->setRedirect(JRoute::_($link, false));
             return;
         }
         
@@ -62,21 +62,21 @@ class CrowdFundingControllerProjects extends ITPrismControllerDefault {
 		$state     = $app->input->get->get('state', 0, 'int');
         $state     = (!$state) ? 0 : 1;
         
-        $redirectData = array(
-            "view" => "projects"
-        );
+        $link      = "index.php?option=com_crowdfunding&view=projects";
         
         $model   = $this->getModel();
         /** @var $model CrowdFundingModelProjectItem **/
         
         $item   = $model->getItem($itemId);
         if($item->user_id != $userId) {
-            $this->displayWarning(JText::_('COM_CROWDFUNDING_ERROR_INVALID_PROJECT'), $redirectData);
+            $this->setMessage(JText::_("COM_CROWDFUNDING_ERROR_INVALID_PROJECT"), "notice");
+            $this->setRedirect(JRoute::_($link, false));
             return;
         }
             
         if($item->approved) {
-            $this->displayNotice(JText::_('COM_CROWDFUNDING_ERROR_APPROVED_UNPUBLISH'), $redirectData);
+            $this->setMessage(JText::_("COM_CROWDFUNDING_ERROR_APPROVED_UNPUBLISH"), "notice");
+            $this->setRedirect(JRoute::_($link, false));
             return;
         }
             
@@ -94,7 +94,8 @@ class CrowdFundingControllerProjects extends ITPrismControllerDefault {
             switch($code) {
                 
                 case ITPrismErrors::CODE_WARNING:
-                    $this->displayWarning($e->getMessage(), $redirectData);
+                    $this->setMessage($e->getMessage(), "notice");
+                    $this->setRedirect(JRoute::_($link, false));
                     return;
                 break;
                 
@@ -107,10 +108,12 @@ class CrowdFundingControllerProjects extends ITPrismControllerDefault {
         
 		// Redirect to next page
 		if(!$state) {
-		    $this->displayMessage(JText::_("COM_CROWDFUNDING_PROJECT_UNPUBLISHED_SUCCESSFULY"), $redirectData);
+		    $this->setMessage(JText::_("COM_CROWDFUNDING_PROJECT_UNPUBLISHED_SUCCESSFULY"));
 		} else {
-		    $this->displayMessage(JText::_("COM_CROWDFUNDING_PROJECT_PUBLISHED_SUCCESSFULY"), $redirectData);
+		    $this->setMessage(JText::_("COM_CROWDFUNDING_PROJECT_PUBLISHED_SUCCESSFULY"));
 		}
+		
+		$this->setRedirect(JRoute::_($link, false));
     }
     
 }

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
 	<fieldset name="backing" label="COM_CROWDFUNDING_BACKING" description="COM_CROWDFUNDING_BACKING_PARAMS">
-		<field name="backing_terms" type="radio" default="0" label="COM_CROWDFUNDING_BACKING_DISPLAY_TERMS" description="COM_CROWDFUNDING_BACKING_DISPLAY_TERMS_DESC">
+		<field name="backing_terms" type="radio" default="0" label="COM_CROWDFUNDING_BACKING_DISPLAY_TERMS" description="COM_CROWDFUNDING_BACKING_DISPLAY_TERMS_DESC" class="btn-group">
             <option value="0">JNO</option>
             <option value="1">JYES</option>
         </field>
         <field name="backing_terms_url" type="text" default="" size="50" label="COM_CROWDFUNDING_BACKING_TERMS_URL" description="COM_CROWDFUNDING_BACKING_TERMS_URL_DESC" />
-        <field name="backing_send_mail_admin" type="radio" default="0" label="COM_CROWDFUNDING_BACKING_SEND_MAIL_ADMIN" description="COM_CROWDFUNDING_BACKING_SEND_MAIL_ADMIN_DESC">
+        <field name="backing_send_mail_admin" type="radio" default="0" label="COM_CROWDFUNDING_BACKING_SEND_MAIL_ADMIN" description="COM_CROWDFUNDING_BACKING_SEND_MAIL_ADMIN_DESC" class="btn-group">
             <option value="0">JNO</option>
             <option value="1">JYES</option>
         </field>
-        <field name="backing_send_mail_user" type="radio" default="0" label="COM_CROWDFUNDING_BACKING_SEND_MAIL_USER" description="COM_CROWDFUNDING_BACKING_SEND_MAIL_USER_DESC">
+        <field name="backing_send_mail_user" type="radio" default="0" label="COM_CROWDFUNDING_BACKING_SEND_MAIL_USER" description="COM_CROWDFUNDING_BACKING_SEND_MAIL_USER_DESC" class="btn-group">
             <option value="0">JNO</option>
             <option value="1">JYES</option>
         </field>
@@ -56,7 +56,7 @@
     
     <fieldset name="project" addfieldpath="/administrator/components/com_content/models/fields">
         <field name="project_intro_article" type="modal_article" default="" label="COM_CROWDFUNDING_INTRO_ARTICLE" description="COM_CROWDFUNDING_INTRO_ARTICLE_DESC" />
-        <field name="project_intro_article_title" type="radio" default="0" label="COM_CROWDFUNDING_INTRO_ARTICLE_DISPLAY_TITLE" description="COM_CROWDFUNDING_INTRO_ARTICLE_DISPLAY_TITLE_DESC" >
+        <field name="project_intro_article_title" type="radio" default="0" label="COM_CROWDFUNDING_INTRO_ARTICLE_DISPLAY_TITLE" description="COM_CROWDFUNDING_INTRO_ARTICLE_DISPLAY_TITLE_DESC" class="btn-group">
             <option value="0">JNO</option>
             <option value="1">JYES</option>
         </field>
@@ -67,6 +67,18 @@
             <option value="0">COM_CROWDFUNDING_MENU_TITLE</option>
             <option value="1">COM_CROWDFUNDING_MENU_BROWSER_TITLE</option>
             <option value="2">COM_CROWDFUNDING_MENU_PAGE_HEADING</option>
+        </field>
+        <field name="seo_project_title" type="radio" default="1" label="COM_CROWDFUNDING_SEO_DISPLAY_PROJECT_TITLE" description="COM_CROWDFUNDING_SEO_DISPLAY_PROJECT_TITLE_DESC" class="btn-group">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+        <field name="seo_project_title_header" type="list" default="h1" label="COM_CROWDFUNDING_SEO_PROJECT_TITLE_HEADING" description="COM_CROWDFUNDING_SEO_PROJECT_TITLE_HEADING_DESC">
+            <option value="h1">H1</option>
+            <option value="h2">H2</option>
+            <option value="h3">H3</option>
+            <option value="h4">H4</option>
+            <option value="h5">H5</option>
+            <option value="h6">H6</option>
         </field>
     </fieldset>
     
@@ -84,23 +96,23 @@
     </fieldset>
     
     <fieldset name="comments" label="COM_CROWDFUNDING_COMMENTS" description="COM_CROWDFUNDING_COMMENTS_PARAMS">
-        <field name="comments_adding_state" type="list" default="" label="COM_CROWDFUNDING_COMMENTS_ADDING_STATE" description="COM_CROWDFUNDING_COMMENTS_ADDING_STATE_DESC">
+        <field name="comments_adding_state" type="radio" default="0" label="COM_CROWDFUNDING_COMMENTS_ADDING_STATE" description="COM_CROWDFUNDING_COMMENTS_ADDING_STATE_DESC" class="btn-group">
             <option value="0">JUNPUBLISHED</option>
             <option value="1">JPUBLISHED</option>
         </field>
     </fieldset>
     
     <fieldset name="security" label="COM_CROWDFUNDING_SECURITY" description="COM_CROWDFUNDING_SECURITY_PARAMS">
-        <field name="security_send_mail_admin" type="radio" default="1" label="COM_CROWDFUNDING_SECURITY_SEND_MAIL_ADMIN" description="COM_CROWDFUNDING_SECURITY_SEND_MAIL_ADMIN_DESC">
+        <field name="security_send_mail_admin" type="radio" default="1" label="COM_CROWDFUNDING_SECURITY_SEND_MAIL_ADMIN" description="COM_CROWDFUNDING_SECURITY_SEND_MAIL_ADMIN_DESC" class="btn-group">
             <option value="0">JNO</option>
             <option value="1">JYES</option>
         </field>
-        <field name="security_send_mail_user" type="radio" default="1" label="COM_CROWDFUNDING_SECURITY_SEND_MAIL_USER" description="COM_CROWDFUNDING_SECURITY_SEND_MAIL_USER_DESC">
+        <field name="security_send_mail_user" type="radio" default="1" label="COM_CROWDFUNDING_SECURITY_SEND_MAIL_USER" description="COM_CROWDFUNDING_SECURITY_SEND_MAIL_USER_DESC" class="btn-group">
             <option value="0">JNO</option>
             <option value="1">JYES</option>
         </field>
         
-        <field name="security_display_friend_form" type="radio" default="0" label="COM_CROWDFUNDING_SECURITY_DISPLAY_FRIEND_FORM" description="COM_CROWDFUNDING_SECURITY_DISPLAY_FRIEND_FORM_DESC">
+        <field name="security_display_friend_form" type="radio" default="0" label="COM_CROWDFUNDING_SECURITY_DISPLAY_FRIEND_FORM" description="COM_CROWDFUNDING_SECURITY_DISPLAY_FRIEND_FORM_DESC" class="btn-group">
             <option value="0">JNO</option>
             <option value="1">JYES</option>
         </field>
@@ -122,11 +134,11 @@
      </fieldset>
      
     <fieldset name="debug" label="COM_CROWDFUNDING_DEBUG" description="COM_CROWDFUNDING_DEBUG_PARAMS">
-        <field name="debug_project_adding_disabled" type="radio" default="1" label="COM_CROWDFUNDING_DEBUG_PROJECT_ADDING_DISABLED" description="COM_CROWDFUNDING_DEBUG_PROJECT_ADDING_DISABLED_DESC">
+        <field name="debug_project_adding_disabled" type="radio" default="0" label="COM_CROWDFUNDING_DEBUG_PROJECT_ADDING_DISABLED" description="COM_CROWDFUNDING_DEBUG_PROJECT_ADDING_DISABLED_DESC" class="btn-group">
             <option value="0">JNO</option>
             <option value="1">JYES</option>
         </field>
-        <field name="debug_payment_disabled" type="radio" default="1" label="COM_CROWDFUNDING_DEBUG_PAYMENT_DISABLED" description="COM_CROWDFUNDING_DEBUG_PAYMENT_DISABLED_DESC">
+        <field name="debug_payment_disabled" type="radio" default="0" label="COM_CROWDFUNDING_DEBUG_PAYMENT_DISABLED" description="COM_CROWDFUNDING_DEBUG_PAYMENT_DISABLED_DESC" class="btn-group">
             <option value="0">JNO</option>
             <option value="1">JYES</option>
         </field>

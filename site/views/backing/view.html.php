@@ -15,7 +15,7 @@
 defined('_JEXEC') or die;
 jimport('joomla.application.component.view');
 
-class CrowdFundingViewBacking extends JView {
+class CrowdFundingViewBacking extends JViewLegacy {
     
     protected $state;
     protected $item;
@@ -280,11 +280,11 @@ class CrowdFundingViewBacking extends JView {
         $pathway->addItem($currentBreadcrumb, '');
         
         // Add styles
-        $this->document->addStyleSheet( 'media/'.$this->option.'/css/site/bootstrap.min.css');
         $this->document->addStyleSheet( 'media/'.$this->option.'/css/site/style.css');
         
         // Add scripts
-        $this->document->addScript(JURI::root() . 'media/'.$this->option.'/js/site/backing.js');
+        JHtml::_('bootstrap.framework');
+        $this->document->addScript('media/'.$this->option.'/js/site/backing.js');
     }
     
     private function prepearePageHeading() {

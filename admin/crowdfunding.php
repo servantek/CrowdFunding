@@ -20,7 +20,7 @@ jimport("crowdfunding.init");
 jimport('joomla.application.component.controller');
 
 // Get an instance of the controller prefixed by HelloWorld
-$controller = JController::getInstance("CrowdFunding");
+$controller = JControllerLegacy::getInstance("CrowdFunding");
 
 // Perform the Request task
 $controller->execute(JFactory::getApplication()->input->getCmd('task'));

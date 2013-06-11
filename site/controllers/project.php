@@ -165,7 +165,7 @@ class CrowdFundingControllerProject extends ITPrismControllerFormFrontend {
         }
         
         // Get item id
-        $itemId  = $app->input->get->get("id");
+        $itemId  = $app->input->get->getInt("id");
         $redirectData = array(
             "view" => "project"
         );

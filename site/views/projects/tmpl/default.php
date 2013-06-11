@@ -68,7 +68,7 @@ defined('_JEXEC') or die;?>
     		<?php }?>
     		</td>
     		<td class="pull-center"><?php echo $goal; ?></td>
-    		<td class="pull-center"><span class="hasTip cursor-help" title="<?php echo JText::sprintf("COM_CROWDFUNDING_PERCENTS_FUNDED", $fundedPercent);?>"><?php echo $funded; ?></span></td>
+    		<td class="pull-center"><span class="hasTooltip cursor-help" title="<?php echo JText::sprintf("COM_CROWDFUNDING_PERCENTS_FUNDED", $fundedPercent);?>"><?php echo $funded; ?></span></td>
     		<td class="pull-center"><?php echo $startingDate; ?></td>
     		<td class="pull-center"><?php echo $duration; ?></td>
     		<td class="pull-center">
