@@ -75,6 +75,7 @@ class CrowdFundingModelFunding extends CrowdFundingModelProject {
         $id             = JArrayHelper::getValue($data, "id");
         $goal           = JArrayHelper::getValue($data, "goal");
         $fundingType    = JArrayHelper::getValue($data, "funding_type");
+        $fundingStart	= JArrayHelper::getValue($data, "funding_start");
         $fundingEnd     = JArrayHelper::getValue($data, "funding_end");
         $fundingDays    = JArrayHelper::getValue($data, "funding_days");
         $durationType   = JArrayHelper::getValue($data, "funding_duration_type");
@@ -85,6 +86,7 @@ class CrowdFundingModelFunding extends CrowdFundingModelProject {
         
         $row->set("goal",          $goal);
         $row->set("funding_type",  $fundingType);
+        $row->set("funding_start", $fundingStart);
         $row->set("funding_end",   $fundingEnd);
         $row->set("funding_days",  $fundingDays);
         

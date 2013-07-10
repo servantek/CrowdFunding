@@ -26,6 +26,12 @@
             description="COM_CROWDFUNDING_FIELD_FUNDING_DURATION_DESC" 
             required="true"
          />
+        
+        <field name="funding_start" type="calendar"
+            label="COM_CROWDFUNDING_FIELD_FUNDING_START" 
+            filter="trim"
+            default="NOW"
+        />
          
         <field name="funding_days" type="text"
             label="COM_CROWDFUNDING_FIELD_FUNDING_DAYS" 

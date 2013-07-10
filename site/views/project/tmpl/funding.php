@@ -42,6 +42,11 @@ defined('_JEXEC') or die;
             
             <div class="span10">
                 
+                <?php echo $this->form->getLabel('funding_start'); ?>
+                <div class="clearfix"></div>
+                <?php echo $this->form->getInput('funding_start'); ?>
+                <div class="clearfix"></div>
+                
                 <input type="radio" value="days" name="jform[funding_duration_type]" id="funding_duration_type0" <?php echo $this->checkedDays;?>>
                 <?php echo $this->form->getLabel('funding_days'); ?>
                 <div class="clearfix"></div>
