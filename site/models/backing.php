@@ -117,6 +117,9 @@ class CrowdFundingModelBacking extends JModel {
             if (!empty($result)) {
                 $result->funded_percents = CrowdFundingHelper::calculatePercent($result->funded, $result->goal);
                 $result->days_left       = CrowdFundingHelper::calcualteDaysLeft($result->funding_days, $result->funding_start, $result->funding_end);
+                if(!empty($result->funding_days)) {
+                    $result->funding_end     = CrowdFundingHelper::calcualteEndDate($result->funding_days, $result->funding_start);
+                }
                 $this->item              = $result;
             } 
         }
